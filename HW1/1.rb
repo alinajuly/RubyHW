@@ -4,7 +4,7 @@ p array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 p 'even_odd_array = array.partition.each_with_index { |_, i| i.even? }'
 
-  even_odd_array = array.partition.each_with_index { |_, i| i.even? } 
+  even_odd_array = array.partition.each_with_index { |_, i| i.even? }.flatten
 
 p even_odd_array
 
