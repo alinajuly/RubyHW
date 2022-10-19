@@ -2,16 +2,14 @@ p 'Дан целочисленный массив. Необходимо выве
 
 p array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-even_index_array = []
-odd_index_array = []
-array.each_with_index do |item,index| 
-    if (index % 2 == 0)
-      even_index_array.push(item) 
-    else 
-			odd_index_array.push(item) 
-    end
-end
+p 'even_odd_array = array.partition.each_with_index { |_, i| i.even? }'
 
-p even_index_array
-p odd_index_array
-p even_index_array.concat(odd_index_array)
+  even_odd_array = array.partition.each_with_index { |_, i| i.even? } 
+
+p even_odd_array
+
+p 'even_odd_array = array.select.each_with_index {|_, i| i.even?} + array.select.each_with_index{|_, i| i.odd?}'
+
+	even_odd_array = array.select.each_with_index {|_, i| i.even?} + array.select.each_with_index{|_, i| i.odd?}
+	
+p even_odd_array
