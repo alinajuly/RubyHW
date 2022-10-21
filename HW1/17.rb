@@ -2,8 +2,8 @@ p 'Дан целочисленный массив. Найти количеств
 
 p array = [2, 10, 1, 0, -4, 22, 9]
 
-p 'array.each_index.select { |i| array[i] > array[i - 1] && array[i] > array[i + 1] }.count'
+p 'count_local_max = array.each_index.select { |i| array[i] > array[i - 1] && array[i] > array[i + 1] }.count'
 
-new_array = array.each_index.select { |i| array[i] > array[i - 1] && array[i] > array[i + 1] }.count
+count_local_max = array.each_index.select { |i| array[i] > array[i - 1] && array[i] > array[i + 1] }.count
 
-p new_array
+p count_local_max
