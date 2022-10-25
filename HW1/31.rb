@@ -2,6 +2,6 @@ p 'Вывести индексы массива в том порядке, в к�
 
 p array = [1, 3, 2, 4]
 
-p 'array.map{ |element| array.sort.index(element)}.reverse'
+p 'array.map{ |element| array.sort.index(element) }.reverse'
 
-p array.map{ |element| array.sort.index(element)}.reverse
+p array.map{ |element| array.sort.index(element) }.reverse
