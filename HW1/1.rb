@@ -8,8 +8,8 @@ p 'even_odd_array = array.partition.each_with_index { |_, i| i.even? }.flatten'
 
 p even_odd_array
 
-p 'even_odd_array = array.select.each_with_index {|_, i| i.even?} + array.select.each_with_index{|_, i| i.odd?}'
+p 'even_odd_array = array.select.each_with_index { |_, i| i.even? } + array.select.each_with_index { |_, i| i.odd? }'
 
-	even_odd_array = array.select.each_with_index {|_, i| i.even?} + array.select.each_with_index{|_, i| i.odd?}
+	even_odd_array = array.select.each_with_index { |_, i| i.even? } + array.select.each_with_index { |_, i| i.odd? }
 	
 p even_odd_array
