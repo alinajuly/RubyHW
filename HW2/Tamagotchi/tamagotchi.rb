@@ -82,15 +82,14 @@ class Pet
     @life -= 10 if happy?
     @life -= 10 if angry?
     @life -= 10 if wants_to_sleep?
-    @life -= 10 if rest < 30
   end
 
   def hungry?
-    hunger < 60 && puts('I 1want to eat')
+    hunger < 60 && puts('I want to eat')
   end
 
   def thirsty?
-    thirst < 60 && puts('I 1want to drink')
+    thirst < 60 && puts('I want to drink')
   end
 
   def happy?
