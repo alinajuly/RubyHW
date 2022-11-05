@@ -6,7 +6,7 @@ Tamagotchi game with gem to generate HTML.
 
 * Use git clone to clone repository 
 
-`git clone https://github.com/alinajuly/RubyHW`
+`git clone https://github.com/alinajuly/RubyHW.git`
 
 * Install all of the required gems (Gemfile)
 
