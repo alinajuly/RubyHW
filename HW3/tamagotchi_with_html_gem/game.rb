@@ -33,11 +33,6 @@ class Game
       p "Choose what to do with #{@name} (type 'help' if you need it)"
       action = gets.chomp.downcase
 
-      if @pet.life <= 0 || @pet.rest <=0
-        to_show_html("<center><b><font size=7>#{@name} is DEAD! Rest in peace, little friend... 🪦</font></b></center>") 
-        break
-      end
-
       case action
       when '1'
         @pet.play
@@ -63,6 +58,11 @@ class Game
         help
       else
         p 'try again'
+      end
+
+      if @pet.life <= 0 || @pet.rest <= 0
+        to_show_html("<center><b><font size=7>#{@name} is DEAD! Rest in peace, little friend... &#129702</font></b></center>")
+        break
       end
     end
   end
