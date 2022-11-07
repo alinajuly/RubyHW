@@ -19,7 +19,7 @@ p 'відсортувати від більшого до меншого'
 p array.sort.reverse
 
 p 'видалити всі непарні числа'
-p array.select(&:even?)
+p array.reject(&:odd?)
 
 p 'залишити тільки ті числа, які без остачі ділятся на 3'
 p array.select { |number| (number % 3).zero? }
