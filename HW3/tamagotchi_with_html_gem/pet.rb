@@ -4,7 +4,7 @@ class Pet
   EVENTS = ['jumps', 'lie on the floor', 'licks off', 'rotates'].freeze
   attr_accessor :name, :life, :hunger, :thirst, :joy, :love, :tired, :rest, :smile
 
-  def initialize(name = '', life = 100, hunger = 50, thirst = 50, joy = 50, love = 50, tired = 100, rest = 100)
+  def initialize(name = '', life = 100, hunger = 100, thirst = 100, joy = 50, love = 50, tired = 100, rest = 100)
     @name = name
     @life = life
     @hunger = hunger
@@ -16,7 +16,7 @@ class Pet
   end
 
   def greet
-    to_show_html("<center><b><font size=7>Hello, I'm #{name} 🤗</font></b></center>")
+    to_show_html("<center><b><font size=7>Hello, I'm #{name} &#129303</font></b></center>")
   end
 
   def play
@@ -26,16 +26,12 @@ class Pet
 
   def feed
     @hunger += 20
-    @life += 10
-    @love += 10
-    @joy += 10
+    update_stats
   end
 
   def drink
     @thirst += 20
-    @life += 10
-    @love += 10
-    @joy += 10
+    update_stats
   end
   
   def hug
@@ -58,52 +54,58 @@ class Pet
   end
 
   def watching
-    to_show_html("<center><p><b><font size=7>#{EVENTS.sample} 💫</font></b></p></center>")
+    to_show_html("<center><p><b><font size=7>#{EVENTS.sample} &#128171</font></b></p></center>")
   end
 
   def pet_info
     "<center><p><b><font size=7>name:         #{name}</font></b></p></center>
-    <center><p><b><font size=7>life:          #{life} ❤️‍🩹</font></b></p></center>
-    <center><p><b><font size=7>hunger         #{hunger} 🍔</font></b></p></center>
-    <center><p><b><font size=7>thirsty        #{thirst} 💧</font></b></p></center>
-    <center><p><b><font size=7>happiness:     #{joy} 🤩</font></b></p></center>
-    <center><p><b><font size=7>love:          #{love} 🥰</font></b></p></center>
-    <center><p><b><font size=7>tired:         #{tired} 😒</font></b></p></center>
-    <center><p><b><font size=7>want to sleep: #{rest} 😴</font></b></p></center>"
+    <center><p><b><font size=7>life:          #{life} &#128148</font></b></p></center>
+    <center><p><b><font size=7>hunger         #{hunger} &#127828</font></b></p></center>
+    <center><p><b><font size=7>thirsty        #{thirst} &#128167</font></b></p></center>
+    <center><p><b><font size=7>happiness:     #{joy} &#129321</font></b></p></center>
+    <center><p><b><font size=7>love:          #{love} &#128525</font></b></p></center>
+    <center><p><b><font size=7>tired:         #{tired} &#128530</font></b></p></center>
+    <center><p><b><font size=7>want to sleep: #{rest} &#128564</font></b></p></center>"
   end
 
   private
 
+  def update_stats
+    @life += 10
+    @love += 10
+    @joy += 10
+  end
+
   def passage_of_time
     @tired -= rand(0..10)
-    @rest -= 20
+    @rest -= 10
     @hunger -= rand(0..10)
     @thirst -= rand(0..10)
-    @life -= 10 if hungry?
-    @life -= 10 if thirsty?
-    @life -= 10 if happy?
-    @life -= 10 if angry?
-    @life -= 10 if wants_to_sleep?
+    @life -= 10 if want_to_eat
+    @life -= 10 if want_to_drink
+    @life -= 10 if want_to_play
+    @life -= 10 if want_to_hug
+    @life -= 10 if want_to_sleep
   end
 
-  def hungry?
-    hunger < 60 && puts('I want to eat')
+  def want_to_eat
+    puts('I want to eat') if hunger < 60
   end
 
-  def thirsty?
-    thirst < 60 && puts('I want to drink')
+  def want_to_drink
+    puts('I want to drink') if thirst < 60
   end
 
-  def happy?
-    joy < 60 && puts("I want to play") 
+  def want_to_play
+    puts("I want to play") if joy < 60
   end 
 
-  def angry?
-    love < 60 && puts("I want some hug")
+  def want_to_hug
+    puts("I want some hug") if love < 60
   end
 
-  def wants_to_sleep?
-    rest < 60 && tired < 60 && puts("I want to sleep")
+  def want_to_sleep
+    puts("I want to sleep") if rest < 60 || tired < 60
   end
 
   def to_show_html(content)
