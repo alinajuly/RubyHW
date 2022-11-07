@@ -5,8 +5,8 @@ class Pet
   def initialize name
     @name = name
     @life = 100
-    @hunger = 50
-    @thirst = 50
+    @hunger = 100
+    @thirst = 100
     @joy = 50
     @love = 50
     @tired = 100
@@ -24,16 +24,12 @@ class Pet
 
   def feed
     @hunger += 20
-    @life += 10
-    @love += 10
-    @joy += 10
+    update_stats
   end
 
   def drink
     @thirst += 20
-    @life += 10
-    @love += 10
-    @joy += 10
+    update_stats
   end
   
   def hug
@@ -72,36 +68,42 @@ class Pet
   
   private
 
+  def update_stats
+    @life += 10
+    @love += 10
+    @joy += 10
+  end
+
   def passage_of_time
-    @tired -= rand(0..10)
     @rest -= 20
+    @tired -= rand(0..10)
     @hunger -= rand(0..10)
     @thirst -= rand(0..10)
-    @life -= 10 if hungry?
-    @life -= 10 if thirsty?
-    @life -= 10 if happy?
-    @life -= 10 if angry?
-    @life -= 10 if wants_to_sleep?
+    @life -= 10 if want_to_eat
+    @life -= 10 if want_to_drink
+    @life -= 10 if want_to_play
+    @life -= 10 if want_to_hug
+    @life -= 10 if want_to_sleep
   end
 
-  def hungry?
-    hunger < 60 && puts('I want to eat')
+  def want_to_eat
+    puts('I want to eat') if hunger < 60
   end
 
-  def thirsty?
-    thirst < 60 && puts('I want to drink')
+  def want_to_drink
+    puts('I want to drink') if thirst < 60
   end
 
-  def happy?
-    joy < 60 && puts("I want to play") 
+  def want_to_play
+    puts("I want to play") if joy < 60
   end 
 
-  def angry?
-    love < 60 && puts("I want some hug")
+  def want_to_hug
+    puts("I want some hug") if love < 60
   end
 
-  def wants_to_sleep?
-    rest < 60 && tired < 60 && puts("I want to sleep")
+  def want_to_sleep
+    puts("I want to sleep") if rest < 60 || tired < 60
   end
 end
 
@@ -247,7 +249,7 @@ while pet.life != 0
   p "Choose what to do with #{name} (type 'help' if you need it)"
   action = gets.chomp.downcase
 
-  break p "#{name} is DEAD! Rest in peace, little friend..." if pet.life.negative? || pet.rest.negative?
+  break p "#{name} is DEAD! Rest in peace, little friend..." if pet.life <= 0 || pet.rest <= 0
 
   case action
   when '1'
