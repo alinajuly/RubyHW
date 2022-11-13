@@ -21,7 +21,7 @@ Tamagotchi game with Rack
 Then go to http://localhost:9292
 
 Login with:
-* name: username
+* name: user
 * password: password
 
 That's all. Enjoy!
