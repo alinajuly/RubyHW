@@ -1,16 +1,20 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    rack (3.0.0)
+    nio4r (2.5.8)
+    puma (6.0.0)
+      nio4r (~> 2.0)
+    rack (2.2.4)
 
 PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  rack (~> 3.0)
+  puma (~> 6.0.0)
+  rack (~> 2.2.3)
 
 RUBY VERSION
-   ruby 2.7.2p137
+   ruby 3.1.2p20
 
 BUNDLED WITH
    2.3.25
