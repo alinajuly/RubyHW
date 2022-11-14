@@ -5,19 +5,17 @@ require_relative 'mouse'
 require 'generate_html.rb'
 
 class Game
-  
   def choose_pet
     p "Please, choose your pet (dog, cat or mouse)"
     pet_type = gets.chomp.upcase
     pet_array = ['DOG', 'CAT', 'MOUSE']
-    until pet_array.include?(pet_type) do 
+    loop do
       p 'No such pet, please, choose dog, cat or mouse'
       pet_type = gets.chomp.upcase
+      break if pet_array.include?(pet_type)
     end
-    
     p "You gave the birth to a new life! What's the name of your pet?"
     @name = gets.chomp.upcase
-
     @pet = Pet.new
     @pet = Dog.new(@name) if pet_type == 'DOG'
     @pet = Cat.new(@name) if pet_type == 'CAT'
@@ -26,13 +24,11 @@ class Game
   end
   
   def new_game
-      choose_pet
-      help
-
+    choose_pet
+    help
     while @pet.life != 0
       p "Choose what to do with #{@name} (type 'help' if you need it)"
       action = gets.chomp.downcase
-
       case action
       when '1'
         @pet.play
@@ -59,8 +55,7 @@ class Game
       else
         p 'try again'
       end
-
-      if @pet.life <= 0 || @pet.rest <= 0
+      if @pet.life <= 0 || @pet.hunger <= 0 || @pet.thirst <= 0
         to_show_html("<center><b><font size=7>#{@name} is DEAD! Rest in peace, little friend... &#129702</font></b></center>")
         break
       end
@@ -69,15 +64,15 @@ class Game
 
   def help
     puts "What do you want to do? Press for
-      1 to play
-      2 to feed
-      3 to give a drink
-      4 to hug
-      5 for a walk
-      6 go to bed
-      7 just wathing
-      8 pet information
-      9 end the game"
+    1 to play
+    2 to feed
+    3 to give a drink
+    4 to hug
+    5 for a walk
+    6 go to bed
+    7 just wathing
+    8 pet information
+    9 end the game"
   end
 
   private
@@ -85,7 +80,6 @@ class Game
   def to_show_html(content)
     HtmlGenerator.new.generate_html(content)
   end
-
 end
 
 Game.new.new_game

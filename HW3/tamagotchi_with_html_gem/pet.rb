@@ -81,11 +81,9 @@ class Pet
     @rest -= 10
     @hunger -= rand(0..10)
     @thirst -= rand(0..10)
-    @life -= 10 if want_to_eat
-    @life -= 10 if want_to_drink
-    @life -= 10 if want_to_play
-    @life -= 10 if want_to_hug
-    @life -= 10 if want_to_sleep
+    if want_to_eat || want_to_drink || want_to_play || want_to_hug || want_to_sleep
+      @life -= 10 
+    end
   end
 
   def want_to_eat
