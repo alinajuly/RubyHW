@@ -1,24 +1,22 @@
-# README
+# API application on Ruby on Rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## How to use
 
-Things you may want to cover:
+* Use git clone to clone repository
 
-* Ruby version
+`git clone https://github.com/alinajuly/RubyHW.git`
 
-* System dependencies
+* Install the required gems (Gemfile)
+  
+`gem install bundler`
 
-* Configuration
+`bundle install`
 
-* Database creation
+* Attach `config/database.yml` acording `database copy.yml` with changes in database, username and password
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Type in console:
+  
+`rails db:create`
+`rails db:migrate`
+`rails db:seed`
+`rails s`
