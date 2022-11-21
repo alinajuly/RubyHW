@@ -1,16 +1,10 @@
 module Tamagotchi
   class Error
-    def initialize(display:, text:)
-      @display = display
-      @text = text
-    end
+    attr_reader :display_error, :text_error
 
-    def display_error
-      @display
-    end
-
-    def text_error
-      @text
+    def initialize(params)
+      @display_error = params[:display]
+      @text_error = params[:text]
     end
   end
 end
