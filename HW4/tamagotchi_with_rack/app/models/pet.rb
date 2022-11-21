@@ -16,6 +16,6 @@ class Pet
   end
 
   def dead?
-    hunger.to_i <= 0 || thirst.to_i <= 0 || joy.to_i <= 0 || love.to_i <= 0 || tired.to_i <= 0
+    [hunger, thirst, joy, love, tired].any? { |element| element.to_i <= 0 }
   end
 end
