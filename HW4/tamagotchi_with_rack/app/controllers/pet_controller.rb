@@ -4,17 +4,8 @@ require './app/models/error'
 
 module Tamagotchi
   class PetController
-    # PETS = {
-    #   cat: Cat,
-    #   rabbit: Dog,
-    #   dog: Rabbit
-    # }
     class << self
       def pet(request)
-        # добавити вибір пета при створені
-        # pet_type = request.params['pet_type'] # "dog" => :dog, PETS[:dog] => Dog.new
-        # PETS[pet_type.to_sym].new 
-
         if request.params.key?('name')
           @pet = create_pet(request)
           if check_name_length
@@ -41,12 +32,12 @@ module Tamagotchi
           return_error('Your pet died...')
           return_page(status: 201, view: 'page')
         else
-          return_page(status: 201, view: 'pet') # добавити сторінки для різних петів
+          return_page(status: 201, view: 'pet')
         end
       end
 
       def return_error(text)
-        @error = Error.new(display: true, text: text)
+        @error = Error.new(display: true, text: text )
       end
 
       def return_page(status:, view:)
