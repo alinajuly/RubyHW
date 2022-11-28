@@ -6,4 +6,9 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-Article.create(title: "Kitty", body: "Cat")
+Author.create({ name: 'Irina Sarapina' })
+Author.create({ name: 'Nataliia Kolesnikova' })
+Article.create({ title: 'Article1', body: 'text of body' })
+Article.create({ title: 'Article2', body: 'another text of body' })
+Comment.create({ body: 'First comment', status: 0, author_id: 1, article: Article.first })
+Comment.create({ body: 'Second comment', status: 1, author_id: 2, article: Article.second })

@@ -9,7 +9,7 @@ class Api::V1::ArticlesController < ApplicationController
 
   # GET /api/v1/articles/1
   def show
-    render json: { article: @article comments: @article.comments }
+    render json: { article: @article, comments: @article.comments }
   end
 
   # POST /api/v1/articles
