@@ -72,37 +72,37 @@
 
       <div class="btn-toolbar" style="display: 'none'">
         <form method="post" action="update">
-          <input type="hidden" id="joy" name="joy" value="<%= @pet.joy.to_i + 20 %>">
-          <input type="hidden" id="thirst" name="thirst" value="<%= @pet.thirst.to_i - 10 %>">
-          <input type="hidden" id="hunger" name="hunger" value="<%= @pet.hunger.to_i - 10 %>">
-          <input type="hidden" id="tired" name="tired" value="<%= @pet.tired.to_i - 20 %>">
+          <input type="hidden" id="joy" name="joy" value="<%= @pet.joy + 20 %>">
+          <input type="hidden" id="thirst" name="thirst" value="<%= @pet.thirst - 10 %>">
+          <input type="hidden" id="hunger" name="hunger" value="<%= @pet.hunger - 10 %>">
+          <input type="hidden" id="tired" name="tired" value="<%= @pet.tired - 20 %>">
           <input type="hidden" id="image" name="image" value="play.jpg">
           <button type="submit" class="btn btn-outline-primary mr-2">Play</button>
         </form>
 
         <form method="post" action="update">
-          <input type="hidden" id="hunger" name="hunger" value="<%= @pet.hunger.to_i + 20 %>">
+          <input type="hidden" id="hunger" name="hunger" value="<%= @pet.hunger + 20 %>">
           <input type="hidden" id="image" name="image" value="feed.jpg">
           <button type="submit" class="btn btn-outline-warning">Eat</button>
         </form>
 
         <form method="post" action="update">
-          <input type="hidden" id="thirst" name="thirst" value="<%= @pet.thirst.to_i + 10 %>">
+          <input type="hidden" id="thirst" name="thirst" value="<%= @pet.thirst + 10 %>">
           <input type="hidden" id="image" name="image" value="drink.jpg">
           <button type="submit" class="btn btn-outline-info">Drink</button>
         </form>
 
         <form method="post" action="update">
-          <input type="hidden" id="love" name="love" value="<%= @pet.love.to_i + 10 %>">
+          <input type="hidden" id="love" name="love" value="<%= @pet.love + 10 %>">
           <input type="hidden" id="image" name="image" value="hug.jpg">
           <button type="submit" class="btn btn-outline-danger">Hug</button>
         </form>
 
         <form method="post" action="update">
-          <input type="hidden" id="tired" name="tired" value="<%= @pet.tired.to_i + 20 %>">
-          <input type="hidden" id="thirst" name="thirst" value="<%= @pet.thirst.to_i - 20 %>">
-          <input type="hidden" id="hunger" name="hunger" value="<%= @pet.hunger.to_i - 20 %>">
-          <input type="hidden" id="love" name="love" value="<%= @pet.love.to_i - 10 %>">
+          <input type="hidden" id="tired" name="tired" value="<%= @pet.tired + 20 %>">
+          <input type="hidden" id="thirst" name="thirst" value="<%= @pet.thirst - 20 %>">
+          <input type="hidden" id="hunger" name="hunger" value="<%= @pet.hunger - 20 %>">
+          <input type="hidden" id="love" name="love" value="<%= @pet.love - 10 %>">
           <input type="hidden" id="image" name="image" value="sleep.jpg">
           <button type="submit" class="btn btn-outline-dark">Sleep</button>
         </form>

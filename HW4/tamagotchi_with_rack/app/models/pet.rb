@@ -12,7 +12,11 @@ class Pet
   end
 
   def update(params = {})
-    params.each { |param_key, param_value| self.send("#{param_key}=", param_value) }
+    params.each { |param_key, param_value| 
+      health_attributes = ['hunger', 'thirst', 'joy', 'love', 'tired']
+      param_value = param_value.to_i if health_attributes.include?(param_key)
+      self.send("#{param_key}=", param_value)
+    }
   end
 
   def dead?

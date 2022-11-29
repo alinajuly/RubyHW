@@ -1,9 +1,10 @@
 require 'erb'
 require './app/models/pet'
 require './app/models/error'
+require './app/controllers/base_controller'
 
 module Tamagotchi
-  class PetController
+  class PetController < Tamagotchi::BaseController
     class << self
       def pet(request)
         if request.params.key?('name')
@@ -22,7 +23,7 @@ module Tamagotchi
       end
 
       def create_pet(request)
-        @name = request['name']
+        @name = request['name'].upcase
         Pet.new(@name)
       end
 
@@ -34,16 +35,6 @@ module Tamagotchi
         else
           return_page(status: 201, view: 'pet')
         end
-      end
-
-      def return_error(text)
-        @error = Error.new(display: true, text: text )
-      end
-
-      def return_page(status:, view:)
-        path = "./app/views/#{view}.html.erb"
-        template = ERB.new(File.read(path)).result(binding)
-        [status, { 'Content-Type' => 'text/html' }, [template]]
       end
     end
   end

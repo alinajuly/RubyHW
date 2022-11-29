@@ -21,8 +21,8 @@
       <button class="btn btn-outline-dark" type="submit" id="button-addon2">Play</button>
       </div>
       </form>
-      <p class="alert alert-danger" style="display: <%= @error.display_error ? 'inline' : 'none' %>">
-        <%= @error.text_error %>
+      <p class="alert alert-danger" style="display: <%= @error&.display_error ? 'inline' : 'none' %>">
+        <%= @error&.text_error %>
       </p>
     </div>
 
