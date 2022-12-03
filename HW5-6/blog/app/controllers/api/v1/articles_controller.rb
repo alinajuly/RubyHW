@@ -4,6 +4,7 @@ class Api::V1::ArticlesController < ApplicationController
   # GET /api/v1/articles
   def index
     @articles = Article.all
+
     render json: @articles
   end
 
@@ -15,6 +16,7 @@ class Api::V1::ArticlesController < ApplicationController
   # POST /api/v1/articles
   def create
     @article = Article.new(article_params)
+    
     if @article.save
       render json: @article, status: :created
     else

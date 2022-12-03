@@ -27,7 +27,7 @@ class Api::V1::AuthorsController < ApplicationController
   # PATCH/PUT /api/v1/authors/1
   def update
     if @author.update(author_params)
-      render json: @author
+      render json: @author, status: :ok
     else
       render json: @author.errors, status: :unprocessable_entity
     end
@@ -35,7 +35,11 @@ class Api::V1::AuthorsController < ApplicationController
 
   # DELETE /api/v1/authors/1
   def destroy
-    @author.destroy
+    if @author.destroy
+      render status: :ok
+    else
+      render json: @article.errors, status: :unprocessable_entity
+    end
   end
 
   private
