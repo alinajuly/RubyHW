@@ -23,3 +23,9 @@
 `rails db:seed`
 
 `rails s`
+
+### To chanfe status of comments
+
+* use PATCH/PUT 
+* path /api/v1/comments/1
+* change status unpublished: 0, published: 1
