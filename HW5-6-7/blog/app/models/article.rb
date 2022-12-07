@@ -2,6 +2,7 @@ class Article < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :articletags
   has_many :tags, through: :articletags
+  has_many :likes, as: :likeable
 
   scope :last_ten_comments, ->(article) { article.comments.last(10) }
 

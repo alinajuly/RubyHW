@@ -1,6 +1,7 @@
 class Comment < ApplicationRecord
   belongs_to :article
   belongs_to :author
+  has_many :likes, as: :likeable
 
   scope :with_status, ->(status_type) { where(status: status_type) }
   enum status: { unpublished: 0, published: 1 }
