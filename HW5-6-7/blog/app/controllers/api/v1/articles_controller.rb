@@ -10,7 +10,8 @@ class Api::V1::ArticlesController < ApplicationController
 
   # GET /api/v1/articles/1
   def show
-    render json: { article: @article, comments: get_comments }
+    @comments = @article.comments.last_ten_comments
+    render json: { article: @article, comments: @comments }, status: :ok
   end
 
   # POST /api/v1/articles
@@ -45,13 +46,13 @@ class Api::V1::ArticlesController < ApplicationController
   private
   # Use callbacks to share common setup or constraints between actions.
   
-  def get_comments
-    if params[:show_last_ten_comments]
-      Article.last_ten_comments(@article)
-    else
-      @article.comments
-    end
-  end
+  # def get_comments
+  #   if params[:show_last_ten_comments]
+  #     Article.last_ten_comments(@article)
+  #   else
+  #     @article.comments
+  #   end
+  # end
   
   def set_article
     @article = Article.find(params[:id])

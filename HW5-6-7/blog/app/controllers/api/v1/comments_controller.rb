@@ -3,10 +3,7 @@ class Api::V1::CommentsController < ApplicationController
 
   # GET /api/v1/comments
   def index
-    @comments = Comment.all
-    @comments = Comment.with_status(params[:status]) if params[:status].present?
-    
-    render json: @comments
+    render json: comments
   end
 
   # POST /api/v1/comments
@@ -39,6 +36,12 @@ class Api::V1::CommentsController < ApplicationController
 
   private
   
+  def comments 
+    return Comment.with_status(params[:status]) if params[:status].present?
+    
+    Comment.all
+  end
+
   def set_comment
     @comment = Comment.find(params[:id])
   end
