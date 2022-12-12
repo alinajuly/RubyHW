@@ -30,7 +30,7 @@
 * path /api/v1/comments/1
 * change status unpublished: 0, published: 1
 
-### To show last 10 comments of article
+### To show last 10 comments of Article
 
 * use GET
 * path /api/v1/articles/1
