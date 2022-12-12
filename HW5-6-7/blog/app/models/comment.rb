@@ -7,7 +7,5 @@ class Comment < ApplicationRecord
   scope :last_ten_comments, -> { order(created_at: :desc).last(10) }
   enum status: { unpublished: 0, published: 1 }
 
-  validates :body, presence: true, length: { minimum: 1 }
-  validates :author_id, presence: true
-  validates :article_id, presence: true
+  validates :article_id, :author_id, :body, presence: true, length: { minimum: 1 }
 end
