@@ -34,3 +34,10 @@
 
 * use GET
 * path /api/v1/articles/1
+
+
+### To find phrase in title or body of Article
+
+* use GET
+* path /api/v1/articles?search=text of body
+* params: search
