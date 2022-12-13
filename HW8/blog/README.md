@@ -35,9 +35,32 @@
 * use GET
 * path /api/v1/articles/1
 
-
 ### To find phrase in title or body of Article
 
 * use GET
-* path /api/v1/articles?search=text of body
-* params: search
+* path /api/v1/articles?search_phrase=text of body
+* params: search_phrase
+
+### To filter Article by status unpublished: 0, published: 1
+
+* use GET
+* path /api/v1/articles?status
+* params: status
+  
+### To filter Article by author name
+
+* use GET
+* path /api/v1/articles?author
+* params: author
+
+### To filter Article by tag name
+
+* use GET
+* path /api/v1/articles
+* body raw JSON { "tags" : [ "rails", "rubyonrails"] }
+
+### To sort Articles by title in ascending(asc) or descending(decs) order
+
+* use GET
+* for ascending /api/v1/articles?order=asc
+* for descending /api/v1/articles?order=desc

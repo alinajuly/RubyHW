@@ -10,7 +10,7 @@ class Api::V1::CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
-      render json: @comment, status: :created
+      rrender json: { status: "Create", data: @comment }, status: :created
     else 
       render json: @comment.errors, status: :unprocessable_entity
     end
@@ -19,7 +19,7 @@ class Api::V1::CommentsController < ApplicationController
   # PATCH/PUT /api/v1/comments/1
   def update
     if @comment.update(comment_params)
-      render json: @comment, status: :ok
+      render json: { status: "Update", data: @comment }, status: :ok
     else
       render json: @comment.errors, status: :unprocessable_entity
     end
@@ -28,7 +28,7 @@ class Api::V1::CommentsController < ApplicationController
   # DELETE /api/v1/comments/1
   def destroy
     if @comment.destroy
-      render status: :ok
+      render json: { status: "Delete" }, status: :ok
     else
       render json: @article.errors, status: :unprocessable_entity
     end

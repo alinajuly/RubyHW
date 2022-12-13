@@ -1,18 +1,35 @@
 class Api::V1::ArticlesController < ApplicationController
+  include Pagy::Backend
   before_action :set_article, only: %i[ show show_last_10_comments update destroy ]
 
   # GET /api/v1/articles
   def index
     @articles = Article.all
-    @articles = @articles.search_by_phrase(params[:search]) if params[:search].present?
-    
-    render json: @articles
+  # GET /api/v1/articles?search_phrase
+    @articles = @articles.search_by_phrase(params[:search_phrase]) if params[:search_phrase].present?
+  # GET /api/v1/articles?status
+    @articles = @articles.filter_by_status(params[:status]) if params[:status].present?
+  # GET /api/v1/articles?author
+    @articles = @articles.filter_by_author_name(params[:author]) if params[:author].present?
+  # GET /api/v1/articles
+    @articles = @articles.filter_by_tag(params[:tags].map(&:downcase)) if params[:tags].present?
+  # GET /api/v1/articles?order
+    @articles = @articles.sort_by_asc_desc(params[:order]) if params[:order].present?
+
+    @pagy, @articles = pagy(@articles, items: 15)
+
+    if @articles.blank?
+      render json: { message: "Not found" }
+    else
+      render json: @articles
+    end
   end
 
   # GET /api/v1/articles/1
   def show
     @comments = @article.comments.last_ten_comments
-    render json: { article: @article, comments: @comments }, status: :ok
+
+    render json: @article, each_serializer: Api::V1::ArticleSerializer, status: :ok
   end
 
   # POST /api/v1/articles
@@ -20,7 +37,7 @@ class Api::V1::ArticlesController < ApplicationController
     @article = Article.new(article_params)
     
     if @article.save
-      render json: @article, status: :created
+      render json: { status: "Create", data: @article }, status: :created
     else
       render json: @article.errors, status: :unprocessable_entity
     end
@@ -29,7 +46,7 @@ class Api::V1::ArticlesController < ApplicationController
   # PUT/PATCH /api/v1/articles/1
   def update
     if @article.update(article_params)
-      render json: @article, status: :ok
+      render json: { status: "Update", data: @article }, status: :ok
     else
       render json: @article.errors, status: :unprocessable_entity
     end
@@ -38,7 +55,7 @@ class Api::V1::ArticlesController < ApplicationController
   # DELETE /api/v1/articles/1
   def destroy
     if @article.destroy
-      render status: :ok
+      render json: { status: "Delete" }, status: :ok
     else
       render json: @article.errors, status: :unprocessable_entity
     end
@@ -46,14 +63,6 @@ class Api::V1::ArticlesController < ApplicationController
 
   private
   # Use callbacks to share common setup or constraints between actions.
-  
-  def get_comments
-    if params[:show_last_ten_comments]
-      Article.last_ten_comments(@article)
-    else
-      @article.comments
-    end
-  end
   
   def set_article
     @article = Article.find(params[:id])

@@ -16,9 +16,8 @@ class Api::V1::TagsController < ApplicationController
   # POST /api/v1/tags
   def create
     @tag = Tag.new(tag_params)
-
     if @tag.save
-      render json: @tag, status: :created
+      render json: { status: "Create", data: @tag }, status: :created
     else
       render json: @tag.errors, status: :unprocessable_entity
     end
@@ -27,7 +26,7 @@ class Api::V1::TagsController < ApplicationController
   # PATCH/PUT /api/v1/tags/1
   def update
     if @tag.update(tag_params)
-      render json: @tag
+      render json: { status: "Update", data: @tag }, status: :ok
     else
       render json: @tag.errors, status: :unprocessable_entity
     end
@@ -35,7 +34,7 @@ class Api::V1::TagsController < ApplicationController
 
   # DELETE /api/v1/tags/1
   def destroy
-    @tag.destroy
+    render json: { status: "Delete" }, status: :ok
   end
 
   private

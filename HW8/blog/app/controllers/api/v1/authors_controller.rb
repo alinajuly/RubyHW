@@ -18,7 +18,7 @@ class Api::V1::AuthorsController < ApplicationController
     @author = Author.new(author_params)
 
     if @author.save
-      render json: @author, status: :created, location: @author
+      render json: { status: "Create", data: @author }, status: :created, location: @author
     else
       render json: @author.errors, status: :unprocessable_entity
     end
@@ -27,7 +27,7 @@ class Api::V1::AuthorsController < ApplicationController
   # PATCH/PUT /api/v1/authors/1
   def update
     if @author.update(author_params)
-      render json: @author, status: :ok
+      render json: { status: "Update", data: @author }, status: :ok
     else
       render json: @author.errors, status: :unprocessable_entity
     end
@@ -36,7 +36,7 @@ class Api::V1::AuthorsController < ApplicationController
   # DELETE /api/v1/authors/1
   def destroy
     if @author.destroy
-      render status: :ok
+      render json: { status: "Delete" }, status: :ok
     else
       render json: @article.errors, status: :unprocessable_entity
     end

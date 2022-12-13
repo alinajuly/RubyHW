@@ -16,9 +16,8 @@ class Api::V1::LikesController < ApplicationController
   # POST /api/v1/likes
   def create
     @like = Like.new(like_params)
-
     if @like.save
-      render json: @like, status: :created
+      render json: { status: "Create", data: @like }, status: :created
     else
       render json: @like.errors, status: :unprocessable_entity
     end
@@ -26,7 +25,7 @@ class Api::V1::LikesController < ApplicationController
 
   # DELETE /api/v1/likes/1
   def destroy
-    @like.destroy
+    render json: { status: "Delete" }, status: :ok
   end
 
   private

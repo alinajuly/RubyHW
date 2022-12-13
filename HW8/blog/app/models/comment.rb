@@ -1,7 +1,7 @@
 class Comment < ApplicationRecord
   belongs_to :article
   belongs_to :author
-  has_many :likes, as: :likeable
+  has_many :likes, as: :likeable, dependent: :destroy
 
   scope :with_status, ->(status_type) { where(status: status_type) }
   scope :last_ten_comments, -> { order(created_at: :desc).last(10) }
