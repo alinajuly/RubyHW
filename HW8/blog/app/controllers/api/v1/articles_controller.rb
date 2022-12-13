@@ -47,13 +47,13 @@ class Api::V1::ArticlesController < ApplicationController
   private
   # Use callbacks to share common setup or constraints between actions.
   
-  # def get_comments
-  #   if params[:show_last_ten_comments]
-  #     Article.last_ten_comments(@article)
-  #   else
-  #     @article.comments
-  #   end
-  # end
+  def get_comments
+    if params[:show_last_ten_comments]
+      Article.last_ten_comments(@article)
+    else
+      @article.comments
+    end
+  end
   
   def set_article
     @article = Article.find(params[:id])
@@ -61,6 +61,6 @@ class Api::V1::ArticlesController < ApplicationController
 
   # Only allow a trusted parameter through.
   def article_params
-    params.require(:article).permit(:title, :body)
+    params.require(:article).permit(:title, :body, :author_id, :status)
   end
 end

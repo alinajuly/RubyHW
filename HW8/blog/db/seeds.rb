@@ -7,8 +7,8 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 Author.create([{ name: 'Irina Sarapina' }, { name: 'Nataliia Kolesnikova' }])
-Article.create([{ title: 'Article1', body: 'text of body' }, 
-                { title: 'Article2', body: 'another text of body' }])
+Article.create([{ title: 'Article1', body: 'text of body', author: Author.first, status: 0 }, 
+                { title: 'Article2', body: 'another text of body', author: Author.second, status: 1 }])
 
 Comment.create([{ body: 'First comment', status: 0, author: Author.first, article: Article.first }, 
                 { body: 'Second comment', status: 1, author: Author.first, article: Article.second },
