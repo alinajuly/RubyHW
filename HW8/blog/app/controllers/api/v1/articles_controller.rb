@@ -29,7 +29,7 @@ class Api::V1::ArticlesController < ApplicationController
   def show
     @comments = @article.comments.last_ten_comments
 
-    render json: @article, each_serializer: Api::V1::ArticleSerializer, status: :ok
+    render json: @article, serializer: Api::V1::ArticleSerializer, status: :ok
   end
 
   # POST /api/v1/articles
