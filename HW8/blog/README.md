@@ -53,11 +53,12 @@
 * path /api/v1/articles?author
 * params: author
 
-### To filter Article by tag name
+### To filter Article by tag name 
 
 * use GET
 * path /api/v1/articles
 * body raw JSON { "tags" : [ "rails", "rubyonrails"] }
+* or use params key tags[] and value tag title(ruby, rails, rubyonrails, programming)
 
 ### To sort Articles by title in ascending(asc) or descending(decs) order
 
