@@ -6,24 +6,31 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-Author.create([{ name: 'Author1' }, { name: 'Author2' }])
-Article.create([{ title: 'Article1', body: 'text of body', author: Author.first, status: 0 }, 
-                { title: 'Article2', body: 'another text of body', author: Author.second, status: 1 }])
-
-Comment.create([{ body: 'First comment', status: 0, author: Author.first, article: Article.first }, 
-                { body: 'Second comment', status: 1, author: Author.first, article: Article.second },
-                { body: 'Third comment', status: 1, author: Author.second, article: Article.second },
-                { body: 'Fourth comment', status: 1, author: Author.last, article: Article.second }])
+# Author.create([{ name: 'Author1' }, { name: 'Author2' }])
 
 Like.create([{ likeable_type: 'Article', likeable: Article.first }, 
              { likeable_type: 'Comment', likeable: Comment.first }])
 
-Tag.create([{ title: 'ruby' },
-            { title: 'rails' },
-            { title: 'rubyonrails'},
-            { title: 'programming' }])
+10.times do
+  Tag.create({ title: Faker::ProgrammingLanguage.name })
+end
 
-ArticleTag.create([{article: Article.first, tag: Tag.find_by(title: 'ruby')}, 
-                   {article: Article.second, tag: Tag.find_by(title: 'rails')},
-                   {article: Article.second, tag: Tag.find_by(title: 'rubyonrails')},
-                   {article: Article.second, tag: Tag.find_by(title: 'programming')}])
+5.times do
+  author = Author.create({ name: Faker::ProgrammingLanguage.creator })
+  10.times do
+    article = Article.create({ title: Faker::ProgrammingLanguage.name, body:  Faker::Quote.matz, author_id: author.id, tag_ids: Tag.pluck(:id).select(&:even?) })
+    15.times do
+      Comment.create({ body: Faker::Quote.jack_handey, author_id: author.id, article_id: article.id })
+    end
+  end
+end
+
+5.times do
+  author = Author.create({ name: Faker::ProgrammingLanguage.creator })
+  10.times do
+    article = Article.create({ title: Faker::ProgrammingLanguage.name, body:  Faker::Quote.matz, author_id: author.id, tag_ids: Tag.pluck(:id).select(&:odd?) })
+    15.times do
+      Comment.create({ body: Faker::Quote.jack_handey, author_id: author.id, article_id: article.id })
+    end
+  end
+end

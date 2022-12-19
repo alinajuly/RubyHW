@@ -12,7 +12,7 @@ class Api::V1::ArticlesController < ApplicationController
   # GET /api/v1/articles?author
     @articles = @articles.filter_by_author_name(params[:author]) if params[:author].present?
   # GET /api/v1/articles
-    @articles = @articles.filter_by_tag(params[:tags].map(&:downcase)) if params[:tags].present?
+    @articles = @articles.filter_by_tag(params[:tags].map {|element| "%#{element.downcase}%"}) if params[:tags].present?
   # GET /api/v1/articles?order
     @articles = @articles.sort_by_order(params[:order]) if params[:order].present?
 
