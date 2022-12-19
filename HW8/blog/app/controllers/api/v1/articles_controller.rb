@@ -1,6 +1,6 @@
 class Api::V1::ArticlesController < ApplicationController
   include Pagy::Backend
-  before_action :set_article, only: %i[ show show_last_10_comments update destroy ]
+  before_action :set_article, only: %i[show update destroy]
 
   # GET /api/v1/articles
   def index
@@ -14,22 +14,18 @@ class Api::V1::ArticlesController < ApplicationController
   # GET /api/v1/articles
     @articles = @articles.filter_by_tag(params[:tags].map(&:downcase)) if params[:tags].present?
   # GET /api/v1/articles?order
-    @articles = @articles.sort_by_asc_desc(params[:order]) if params[:order].present?
+    @articles = @articles.sort_by_order(params[:order]) if params[:order].present?
 
     @pagy, @articles = pagy(@articles, items: 15)
 
-    if @articles.blank?
-      render json: { message: "Not found" }
-    else
-      render json: @articles
-    end
+    render json: @articles, each_serializer: Api::V1::ArticlesSerializer
   end
 
   # GET /api/v1/articles/1
   def show
     @comments = @article.comments.last_ten_comments
 
-    render json: @article, serializer: Api::V1::ArticleSerializer, status: :ok
+    render json: @article, each_serializer: Api::V1::ArticleSerializer, status: :ok
   end
 
   # POST /api/v1/articles

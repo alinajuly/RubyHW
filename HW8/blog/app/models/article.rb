@@ -9,7 +9,7 @@ class Article < ApplicationRecord
   scope :filter_by_status, ->(status_type) { where(status: status_type) }
   scope :filter_by_author_name, ->(name) { joins(:author).where('name LIKE ?', "%#{name}%") }
   scope :filter_by_tag, ->(tags) { joins(:tags).where(tags: {title: tags}) }
-  scope :sort_by_asc_desc, ->(order = 'asc') { order(title: order.downcase) }
+  scope :sort_by_order, ->(order = 'asc') { order(title: order.downcase) }
 
   enum status: { unpublished: 0, published: 1 }
 
