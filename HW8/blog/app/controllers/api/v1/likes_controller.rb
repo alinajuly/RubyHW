@@ -32,6 +32,10 @@ class Api::V1::LikesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_like
       @like = Like.find(params[:id])
+      render json: @like
+    rescue ActiveRecord::RecordNotFound => e
+      logger.info e
+      return render json: { message: 'like id not found' }, status: :not_found
     end
 
     # Only allow a list of trusted parameters through.
