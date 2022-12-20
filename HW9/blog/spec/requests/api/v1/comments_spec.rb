@@ -1,17 +1,13 @@
 require 'swagger_helper'
 require 'rails_helper'
 
-RSpec.describe 'api/v1/articles', type: :request do
-  path '/api/v1/articles' do
-    get('list articles') do
-      tags 'Article'
-      parameter name: :search, in: :query, type: :string, description: 'To search phrase in title or body of Article'    
-      parameter name: :status, in: :query, schema: { type: :string, enum: %w[unpublished published] },
-                description: 'To filter Article by status: published/unpublished'
-      parameter name: :author, in: :query, type: :string, description: 'To search Article by author name'
-      parameter name: :tags, in: :query, type: :string, description: 'To search Article by tag name'
-      parameter name: :order, in: :query, type: :string, description: 'To sort Articles by title in ascending(asc) or descending(decs) order'
-      
+RSpec.describe 'api/v1/comments', type: :request do
+
+  path '/api/v1/comments' do
+    get('list comments') do
+      tags 'Comment'
+      parameter name: :limit, in: :query, type: :integer, description: 'To show last comments'
+
       response(200, 'successful') do
         after do |example|
           example.metadata[:response][:content] = {
@@ -24,19 +20,19 @@ RSpec.describe 'api/v1/articles', type: :request do
       end
     end
 
-    post('create article') do
-      tags 'Article'
+    post('create comment') do
+      tags 'Comment'
       consumes 'application/json'
-      parameter name: :article, in: :body, schema: {
+      parameter name: :comment, in: :body, schema: {
         type: :object,
         properties: {
-          title: { type: :string },
           body: { type: :string },
-          author_id: { type: :integer }
+          author_id: { type: :integer },
+          article_id: { type: :integer }
         }, 
-        required: %w[title body author_id status]
+        required: %w[body author_id article_id]
       }
-      
+
       response(200, 'successful') do
         after do |example|
           example.metadata[:response][:content] = {
@@ -50,11 +46,11 @@ RSpec.describe 'api/v1/articles', type: :request do
     end
   end
 
-  path '/api/v1/articles/{id}' do
+  path '/api/v1/comments/{id}' do
     # You'll want to customize the parameter types...
-    parameter name: 'id', in: :path, type: :string, description: 'article id'
-    get('show article with comments') do
-      tags 'Article'
+    parameter name: 'id', in: :path, type: :string, description: 'comment id'
+    get('show comment') do
+      tags 'Comment'
 
       response(200, 'successful') do
         let(:id) { '123' }
@@ -69,19 +65,18 @@ RSpec.describe 'api/v1/articles', type: :request do
       end
     end
 
-    patch('update article') do
-      tags 'Article'
+    patch('update comment') do
+      tags 'Comment'
       consumes 'application/json'
       parameter name: :article, in: :body, schema: {
         type: :object,
         properties: {
-          title: { type: :string },
           body: { type: :string },
           status: { type: :string, enum: %w[unpublished published] },
         },
-        required: %w[title body status]
+        required: %w[body status]
       }
-      
+
       response(200, 'successful') do
         let(:id) { '123' }
         after do |example|
@@ -95,19 +90,18 @@ RSpec.describe 'api/v1/articles', type: :request do
       end
     end
 
-    put('update article') do
-      tags 'Article'
+    put('update comment') do
+      tags 'Comment'
       consumes 'application/json'
       parameter name: :article, in: :body, schema: {
         type: :object,
         properties: {
-          title: { type: :string },
           body: { type: :string },
           status: { type: :string, enum: %w[unpublished published] },
         },
-        required: %w[title body status]
+        required: %w[body status]
       }
-      
+
       response(200, 'successful') do
         let(:id) { '123' }
         after do |example|
@@ -121,9 +115,9 @@ RSpec.describe 'api/v1/articles', type: :request do
       end
     end
 
-    delete('delete article') do
-      tags 'Article'
-      
+    delete('delete comment') do
+      tags 'Comment'
+
       response(200, 'successful') do
         let(:id) { '123' }
         after do |example|
