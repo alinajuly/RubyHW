@@ -41,7 +41,6 @@ class Api::V1::TagsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_tag
       @tag = Tag.find(params[:id])
-      render json: @tag
     rescue ActiveRecord::RecordNotFound => e
       logger.info e
       return render json: { message: 'tag id not found' }, status: :not_found

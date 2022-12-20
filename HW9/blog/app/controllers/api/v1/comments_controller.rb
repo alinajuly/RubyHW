@@ -44,7 +44,6 @@ class Api::V1::CommentsController < ApplicationController
 
   def set_comment
     @comment = Comment.find(params[:id])
-    render json: @comment
   rescue ActiveRecord::RecordNotFound => e
     logger.info e
     return render json: { message: 'comment id not found' }, status: :not_found
