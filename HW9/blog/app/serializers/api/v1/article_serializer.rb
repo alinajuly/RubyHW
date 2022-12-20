@@ -1,6 +1,11 @@
 class Api::V1::ArticleSerializer < ActiveModel::Serializer
-  attributes :id, :title, :body, :created_at, :author
+  attributes :id, :title, :body, :created_at, :author, :comments
   
   has_one :author
-  has_many :comments
+  
+
+  def comments
+    binding.pry
+    ActiveModel::SerializableResource.new(object.comments.last_comments, each_serializer: Api::V1::CommentSerializer)
+  end
 end

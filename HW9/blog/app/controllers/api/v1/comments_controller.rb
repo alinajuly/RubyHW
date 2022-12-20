@@ -3,9 +3,18 @@ class Api::V1::CommentsController < ApplicationController
 
   # GET /api/v1/comments
   def index
-    render json: comments
+    @comments = Comment.all if !params[:limit].present?
+  # GET /api/v1/comments?last_comments
+    @comments = Comment.includes(:author).last_comments(params[:limit]) if params[:limit].present?
+
+    render json: @comments
   end
 
+  # GET /api/v1/comments/1
+  def show
+    render json: @comment
+  end
+  
   # POST /api/v1/comments
   def create
     @comment = Comment.new(comment_params)
