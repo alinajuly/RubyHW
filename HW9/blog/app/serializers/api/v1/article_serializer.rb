@@ -3,9 +3,7 @@ class Api::V1::ArticleSerializer < ActiveModel::Serializer
   
   has_one :author
   
-
   def comments
-    binding.pry
     ActiveModel::SerializableResource.new(object.comments.last_comments, each_serializer: Api::V1::CommentSerializer)
   end
 end
