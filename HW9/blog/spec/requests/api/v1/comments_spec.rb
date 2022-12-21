@@ -2,6 +2,10 @@ require 'swagger_helper'
 require 'rails_helper'
 
 RSpec.describe 'api/v1/comments', type: :request do
+  let(:author) { Author.create(name: 'Author name') }
+  let(:article) { Article.create(title: 'Title', body: 'Body title', author_id: author.id) }
+  let(:comment) { Comment.create(body: 'Body comment', article_id: article.id, author_id: author.id) }
+  let(:id) { comment.id }
 
   path '/api/v1/comments' do
     get('list comments') do
@@ -33,7 +37,9 @@ RSpec.describe 'api/v1/comments', type: :request do
         required: %w[body author_id article_id]
       }
 
-      response(200, 'successful') do
+      response(201, 'successful') do
+        let(:comment) { { body: 'Body comment', article_id: article.id, author_id: author.id } }
+        
         after do |example|
           example.metadata[:response][:content] = {
             'application/json' => {
@@ -53,7 +59,6 @@ RSpec.describe 'api/v1/comments', type: :request do
       tags 'Comment'
 
       response(200, 'successful') do
-        let(:id) { '123' }
         after do |example|
           example.metadata[:response][:content] = {
             'application/json' => {
@@ -78,7 +83,13 @@ RSpec.describe 'api/v1/comments', type: :request do
       }
 
       response(200, 'successful') do
-        let(:id) { '123' }
+        describe 'PATCH api/v1/comments{id}' do
+          it 'check putch comment' do
+            comment.update(body: 'New text')
+            expect(Comment.find_by(body: 'New text')).to eq(comment)
+          end
+        end
+
         after do |example|
           example.metadata[:response][:content] = {
             'application/json' => {
@@ -103,7 +114,13 @@ RSpec.describe 'api/v1/comments', type: :request do
       }
 
       response(200, 'successful') do
-        let(:id) { '123' }
+        describe 'PUT api/v1/comments{id}' do
+          it 'check put comment' do
+            comment.update(body: 'New text')
+            expect(Comment.find_by(body: 'New text')).to eq(comment)
+          end
+        end
+
         after do |example|
           example.metadata[:response][:content] = {
             'application/json' => {
@@ -118,14 +135,12 @@ RSpec.describe 'api/v1/comments', type: :request do
     delete('delete comment') do
       tags 'Comment'
 
-      response(200, 'successful') do
-        let(:id) { '123' }
-        after do |example|
-          example.metadata[:response][:content] = {
-            'application/json' => {
-              example: JSON.parse(response.body, symbolize_names: true)
-            }
-          }
+      response(204, 'successful') do
+        describe 'DELETE api/v1/comments{id}' do
+          it 'delete comment' do
+            comment.destroy
+            expect(Comment.count).to eq(0)
+          end
         end
         run_test!
       end
