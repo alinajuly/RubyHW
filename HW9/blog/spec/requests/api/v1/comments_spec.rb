@@ -6,6 +6,7 @@ RSpec.describe 'api/v1/comments', type: :request do
   let(:article) { Article.create(title: 'Title', body: 'Body title', author_id: author.id) }
   let(:comment) { Comment.create(body: 'Body comment', article_id: article.id, author_id: author.id) }
   let(:id) { comment.id }
+  let(:limit) { '10' }
 
   path '/api/v1/comments' do
     get('list comments') do
@@ -135,10 +136,13 @@ RSpec.describe 'api/v1/comments', type: :request do
     delete('delete comment') do
       tags 'Comment'
 
-      response(204, 'successful') do
+      response(200, 'successful') do
         describe 'DELETE api/v1/comments{id}' do
+          it 'should returns status response' do
+            expect(response.status).to eq(200)
+          end
           it 'delete comment' do
-            comment.destroy
+            article.destroy
             expect(Comment.count).to eq(0)
           end
         end

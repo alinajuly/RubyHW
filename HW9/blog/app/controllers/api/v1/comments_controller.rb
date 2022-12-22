@@ -19,7 +19,7 @@ class Api::V1::CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
-      rrender json: { status: "Create", data: @comment }, status: :created
+      render json: { status: "Create", data: @comment }, status: :created
     else 
       render json: @comment.errors, status: :unprocessable_entity
     end
