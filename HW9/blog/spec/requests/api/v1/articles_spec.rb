@@ -179,10 +179,10 @@ RSpec.describe 'api/v1/articles', type: :request do
     delete('delete article') do
       tags 'Article'
       
-      response(204, 'successful') do
+      response(200, 'successful') do
         describe 'DELETE api/v1/articles{id}' do
           it 'should returns status response' do
-            expect(response.status).to eq(204)
+            expect(response.status).to eq(200)
           end
           it 'delete article' do
             article.destroy
