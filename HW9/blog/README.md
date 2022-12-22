@@ -64,3 +64,21 @@
 * use GET
 * for ascending /api/v1/articles?order=asc
 * for descending /api/v1/articles?order=desc
+
+## To use Rswag
+
+* Type in console:
+  
+`rails s`
+  
+`rails rswag`
+
+* go to `http://localhost:3000/api-docs/index.html`
+  
+## Rspec tests
+
+* Type in console:
+
+`rspec spec/requests/api/v1/articles_spec.rb`
+
+`rspec spec/requests/api/v1/comments_spec.rb`
