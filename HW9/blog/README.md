@@ -68,10 +68,10 @@
 ## To use Rswag
 
 * Type in console:
+
+`rails rswag`
   
 `rails s`
-  
-`rails rswag`
 
 * go to `http://localhost:3000/api-docs/index.html`
   
