@@ -1,24 +1,37 @@
-# README
+# SHOP
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## How to use
 
-Things you may want to cover:
+* Use git clone to clone repository
 
-* Ruby version
+`git clone https://github.com/alinajuly/RubyHW.git`
 
-* System dependencies
+* Install the required gems (Gemfile)
+  
+`gem install bundler`
 
-* Configuration
+`bundle install`
 
-* Database creation
+* Attach `config/database.yml` acording `database copy.yml` with changes in database, username and password
 
-* Database initialization
+* Type in console:
+  
+`rails db:create`
 
-* How to run the test suite
+`rails db:migrate`
 
-* Services (job queues, cache servers, search engines, etc.)
+`rails db:seed`
 
-* Deployment instructions
+`rails s`
 
-* ...
+## To log in as admin
+
+* visit `http://localhost:3000/admin` and log in as the default user:
+  
+`User: admin@example.com`
+
+`Password: password`
+
+## To log in as admin
+
+* visit `http://localhost:3000`

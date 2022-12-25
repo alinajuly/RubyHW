@@ -884,3 +884,158 @@ Processing by ProductsController#show as HTML
 Completed 200 OK in 22ms (Views: 18.2ms | ActiveRecord: 0.5ms | Allocations: 6708)
 
 
+Started GET "/" for ::1 at 2022-12-25 23:36:47 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:6
+  Rendered products/_product.html.erb (Duration: 0.8ms | Allocations: 299)
+  Rendered products/index.html.erb within layouts/application (Duration: 18.8ms | Allocations: 5932)
+  Rendered layout layouts/application.html.erb (Duration: 239.1ms | Allocations: 68618)
+Completed 200 OK in 271ms (Views: 236.1ms | ActiveRecord: 12.3ms | Allocations: 80365)
+
+
+Started GET "/" for ::1 at 2022-12-25 23:38:06 +0200
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms | Allocations: 310)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-12-25 23:38:06 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.1ms | Allocations: 672)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.7ms | Allocations: 3456)
+  Rendered layout layouts/application.html.erb (Duration: 13.2ms | Allocations: 8095)
+Completed 200 OK in 17ms (Views: 14.7ms | ActiveRecord: 0.0ms | Allocations: 9785)
+
+
+Started POST "/users/sign_in" for ::1 at 2022-12-25 23:38:39 +0200
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"alinajuly@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "alinajuly@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 207ms (ActiveRecord: 0.7ms | Allocations: 4273)
+
+
+Started GET "/" for ::1 at 2022-12-25 23:38:39 +0200
+Processing by ProductsController#index as TURBO_STREAM
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:6
+  Rendered products/_product.html.erb (Duration: 0.1ms | Allocations: 32)
+  Rendered products/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 840)
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | Allocations: 5417)
+Completed 200 OK in 11ms (Views: 7.0ms | ActiveRecord: 0.7ms | Allocations: 7268)
+
+
+Started GET "/" for ::1 at 2022-12-25 23:39:49 +0200
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:6
+  Rendered products/_product.html.erb (Duration: 0.2ms | Allocations: 56)
+  Rendered products/index.html.erb within layouts/application (Duration: 11.7ms | Allocations: 3188)
+  Rendered layout layouts/application.html.erb (Duration: 30.0ms | Allocations: 23809)
+Completed 200 OK in 45ms (Views: 27.2ms | ActiveRecord: 9.9ms | Allocations: 29240)
+
+
+Started GET "/" for ::1 at 2022-12-25 23:39:51 +0200
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:6
+  Rendered products/_product.html.erb (Duration: 0.1ms | Allocations: 26)
+  Rendered products/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 735)
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 5209)
+Completed 200 OK in 12ms (Views: 8.4ms | ActiveRecord: 0.7ms | Allocations: 6936)
+
+
+Started GET "/" for ::1 at 2022-12-25 23:40:02 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:6
+  Rendered products/_product.html.erb (Duration: 1.5ms | Allocations: 299)
+  Rendered products/index.html.erb within layouts/application (Duration: 21.1ms | Allocations: 5931)
+  Rendered layout layouts/application.html.erb (Duration: 274.8ms | Allocations: 68843)
+Completed 200 OK in 308ms (Views: 271.7ms | ActiveRecord: 12.1ms | Allocations: 80559)
+
+
+Started GET "/" for ::1 at 2022-12-25 23:40:03 +0200
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:6
+  Rendered products/_product.html.erb (Duration: 0.2ms | Allocations: 33)
+  Rendered products/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 800)
+  Rendered layout layouts/application.html.erb (Duration: 14.4ms | Allocations: 5373)
+Completed 200 OK in 21ms (Views: 14.6ms | ActiveRecord: 1.1ms | Allocations: 7216)
+
+
+Started GET "/" for ::1 at 2022-12-25 23:40:04 +0200
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:6
+  Rendered products/_product.html.erb (Duration: 0.1ms | Allocations: 26)
+  Rendered products/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 735)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 5190)
+Completed 200 OK in 11ms (Views: 6.6ms | ActiveRecord: 0.7ms | Allocations: 6778)
+
+
+Started GET "/" for ::1 at 2022-12-25 23:40:04 +0200
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:6
+  Rendered products/_product.html.erb (Duration: 0.1ms | Allocations: 26)
+  Rendered products/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 735)
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 5186)
+Completed 200 OK in 13ms (Views: 7.9ms | ActiveRecord: 1.5ms | Allocations: 6801)
+
+
+Started GET "/" for ::1 at 2022-12-25 23:40:04 +0200
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:6
+  Rendered products/_product.html.erb (Duration: 0.2ms | Allocations: 26)
+  Rendered products/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 735)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 5184)
+Completed 200 OK in 11ms (Views: 7.5ms | ActiveRecord: 0.7ms | Allocations: 6771)
+
+
+Started GET "/" for ::1 at 2022-12-25 23:40:04 +0200
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:6
+  Rendered products/_product.html.erb (Duration: 0.1ms | Allocations: 26)
+  Rendered products/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 735)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 5184)
+Completed 200 OK in 11ms (Views: 7.2ms | ActiveRecord: 0.7ms | Allocations: 6750)
+
+
