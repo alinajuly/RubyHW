@@ -15,7 +15,7 @@ RSpec.describe 'api/v1/articles', type: :request do
 
     get('list articles') do
       tags 'Article'
-      parameter name: :search, in: :query, type: :string, description: 'To search phrase in title or body of Article'    
+      parameter name: :search_phrase, in: :query, type: :string, description: 'To search phrase in title or body of Article'    
       parameter name: :status, in: :query, schema: { type: :string, enum: %w[unpublished published] },
                 description: 'To filter Article by status: published/unpublished'
       parameter name: :author, in: :query, type: :string, description: 'To search Article by author name'
@@ -23,7 +23,7 @@ RSpec.describe 'api/v1/articles', type: :request do
       parameter name: :order, in: :query, type: :string, description: 'To sort Articles by title in ascending(asc) or descending(decs) order'
       response(200, 'successful') do
         let(:tags) { article.tags.first }
-        let(:search) { 'Title' }
+        let(:search_phrase) { 'Title' }
         let(:author) { 'Sasha' }
         let(:order) { 'desc' }
         let(:status) { 'unpublished' }
@@ -34,7 +34,7 @@ RSpec.describe 'api/v1/articles', type: :request do
             expect(response.status).to eq(200)
           end
           it 'search phrase in title or body of Article' do
-            expect(article).to eq(Article.find_by(title: search))
+            expect(article).to eq(Article.find_by(title: search_phrase))
           end
           it 'search Article by author name' do
             expect(author_name.name).to eq(Author.find_by(name: author).name)
