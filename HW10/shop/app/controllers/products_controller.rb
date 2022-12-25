@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   rescue ActiveRecord::RecordNotFound => e
     logger.info e
-    return render json: { message: 'product id not found' }, status: :not_found
+    return render json: { message: 'product is not found' }, status: :not_found
   end
 
   # Only allow a list of trusted parameters through
