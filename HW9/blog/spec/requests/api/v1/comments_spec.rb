@@ -60,6 +60,9 @@ RSpec.describe 'api/v1/comments', type: :request do
       tags 'Comment'
 
       response(200, 'successful') do
+        it 'should returns status response' do
+          expect(response.status).to eq(200)
+        end
         after do |example|
           example.metadata[:response][:content] = {
             'application/json' => {
