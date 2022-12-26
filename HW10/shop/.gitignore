@@ -1,0 +1,31 @@
+
+# or operating system, you probably want to add a global ignore instead:
+#   git config --global core.excludesfile '~/.gitignore_global'
+
+# Ignore bundler config.
+/.bundle
+
+# Ignore all logfiles and tempfiles.
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+/coverage
+/config/secrets.yml
+/config/database.yml
+/node_modules
+/public/packs
+/public/packs-test
+/public/assets
+/public/build
+*.DS_Store
+
+.github
+
+.byebug_history
+.ruby-version
+.idea/
+
+tags
+
+dump\.rdb
