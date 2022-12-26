@@ -1,0 +1,72 @@
+<div class="container-fluid vh-100">
+  <!-- h-100 takes the full heihgt of the container-->
+  <div class="row vh-100">
+    <div class="col-2 flex-shrink-0 p-3 text-white bg-dark">
+      <a
+        href="/"
+        class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
+      >
+        <svg class="bi me-2" width="40" height="32">
+          <use xlink:href="#bootstrap"></use>
+        </svg>
+        <span class="fs-4">Magaz</span>
+      </a>
+      <hr />
+      <ul class="nav nav-pills flex-column mb-auto">
+        <% Category.all.each do |category| %>
+          <li class="nav-item">
+            <%= link_to category.title, category, class: "nav-link text-white" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-10" style="padding: 0">
+      <!-- Top navbar -->
+      <nav class="navbar navbar-expand-lg bg-dark">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-light">Light</button>
+        </div>
+      </nav>
+      <!-- Contains the main content of the webpage-->
+      <p style="padding: 15px; text-align: justify">
+        Bootstrap is a free and open-source tool collection for creating
+        responsive websites and web applications. It is the most popular HTML,
+        CSS, and JavaScript framework for developing responsive, mobile-first
+        web sites.
+      </p>
+    </div>
+  </div>
+</div>
+<!-- 
+<nav class="navbar navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+    <h2><%= link_to "Vinyl shop", root_path %></h2>
+    <div>
+    <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-warning" %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    </div>
+    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Vinyl shop</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Category
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <% Category.all.each do |category| %>
+                <%= link_to category.title, category, class: "dropdown-item" %>
+              <% end %>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+-->
