@@ -1,15 +1,15 @@
-<div class="row">
-  <% @products.each do |product| %>
-    <div class="row row row-cols-1 row-cols-md-3 g-4">
-      <div class="col">
-        <div class="card text-bg-dark mb-3" style="max-width: 18rem;">
+<div class="container overflow-hidden">
+  <div class="row gy-5 d-flex justify-content-center align-items-center vh-100">
+    <% @products.each do |product| %>
+      <div class="col-auto">
+        <div class="card text-bg-dark mb-3" style="width: 18rem; height: 18rem">
           <img src=<%= product.image %> class="card-img-top" alt=<%= product.name %>>
           <div class="card-body">
             <h5 class="card-title text-center"><%= link_to product.name, product %></h5>
             <p class="card-price mt-auto text-end"><%= number_to_currency(product.price) %></p>
           </div>
         </div>
-      </div> 
-    </div>
-  <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>

@@ -10,33 +10,10 @@
   <body>
     <div class="container-fluid vh-100">
       <div class="row vh-100">
-        <div class="col-2 flex-shrink-0 p-3 text-white bg-dark">
-          <a
-            href="/"
-            class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
-          >
-            <svg class="bi me-2" width="40" height="32">
-              <use xlink:href="#bootstrap"></use>
-            </svg>
-            <span class="fs-4">Magaz</span>
-          </a>
-          <hr />
-          <ul class="nav nav-pills flex-column mb-auto">
-            <% Category.all.each do |category| %>
-            <li class="nav-item">
-              <%= link_to category.title, category, class: "nav-link text-white"
-              %>
-            </li>
-            <% end %>
-          </ul>
-        </div>
-        <div class="col-10" style="padding: 0">
+        <%= render partial: "layouts/template/sidebar" %>
+        <div class="col-10 hv-100" style="padding: 0">
           <!-- Top navbar -->
-          <nav class="navbar navbar-expand-lg bg-dark">
-            <div class="container-fluid">
-              <button type="button" class="btn btn-light">Light</button>
-            </div>
-          </nav>
+          <%= render partial: "layouts/template/navbar" %>
           <!-- Contains the main content of the webpage-->
           <%= yield %>
         </div>
