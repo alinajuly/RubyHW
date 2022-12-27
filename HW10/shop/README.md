@@ -32,6 +32,6 @@
 
 `Password: password`
 
-## To log in as admin
+## To log in as user
 
 * visit `http://localhost:3000`
