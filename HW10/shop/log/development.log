@@ -1114,3 +1114,603 @@ Started GET "/class=%22card-img-top%22" for ::1 at 2022-12-27 04:08:16 +0200
   
 ActionController::RoutingError (No route matches [GET] "/class=%22card-img-top%22"):
   
+Started GET "/" for ::1 at 2022-12-27 04:23:44 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/_products_index.html.erb:3
+  Rendered products/_products_index.html.erb (Duration: 24.0ms | Allocations: 7238)
+  Rendered products/index.html.erb within layouts/application (Duration: 25.8ms | Allocations: 7735)
+  [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/template/_sidebar.html.erb:14
+  Rendered layouts/template/_sidebar.html.erb (Duration: 22.4ms | Allocations: 3054)
+  Rendered layouts/template/_navbar.html.erb (Duration: 0.8ms | Allocations: 137)
+  Rendered layout layouts/application.html.erb (Duration: 11437.4ms | Allocations: 135181)
+Completed 200 OK in 11482ms (Views: 11430.5ms | ActiveRecord: 20.3ms | Allocations: 146939)
+
+
+Started GET "/class=%22card-img-top%22" for ::1 at 2022-12-27 04:23:56 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/class=%22card-img-top%22"):
+  
+Started GET "/users/sign_out" for ::1 at 2022-12-27 04:24:11 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 17ms (ActiveRecord: 0.6ms | Allocations: 5828)
+
+
+Started GET "/" for ::1 at 2022-12-27 04:24:11 +0200
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms | Allocations: 437)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-12-27 04:24:11 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.1ms | Allocations: 672)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 9.0ms | Allocations: 3331)
+  Rendered layouts/template/_sidebar.html.erb (Duration: 0.3ms | Allocations: 68)
+  Rendered layouts/template/_navbar.html.erb (Duration: 0.2ms | Allocations: 47)
+  Rendered layout layouts/application.html.erb (Duration: 22.7ms | Allocations: 9878)
+Completed 200 OK in 27ms (Views: 24.9ms | ActiveRecord: 0.0ms | Allocations: 11397)
+
+
+Started GET "/users/class=%22card-img-top%22" for ::1 at 2022-12-27 04:24:12 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/users/class=%22card-img-top%22"):
+  
+Started POST "/users/sign_in" for ::1 at 2022-12-27 04:24:21 +0200
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"alinajuly@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "alinajuly@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 330ms (ActiveRecord: 0.6ms | Allocations: 3883)
+
+
+Started GET "/" for ::1 at 2022-12-27 04:24:22 +0200
+Processing by ProductsController#index as TURBO_STREAM
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/_products_index.html.erb:3
+  Rendered products/_products_index.html.erb (Duration: 5.6ms | Allocations: 1931)
+  Rendered products/index.html.erb within layouts/application (Duration: 6.0ms | Allocations: 2051)
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/template/_sidebar.html.erb:14
+  Rendered layouts/template/_sidebar.html.erb (Duration: 2.7ms | Allocations: 765)
+  Rendered layouts/template/_navbar.html.erb (Duration: 0.2ms | Allocations: 35)
+  Rendered layout layouts/application.html.erb (Duration: 22.8ms | Allocations: 9239)
+Completed 200 OK in 29ms (Views: 22.6ms | ActiveRecord: 1.5ms | Allocations: 11067)
+
+
+Started GET "/class=%22card-img-top%22" for ::1 at 2022-12-27 04:24:22 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/class=%22card-img-top%22"):
+  
+Started GET "/admin" for ::1 at 2022-12-27 04:24:41 +0200
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.5ms | Allocations: 1627)
+
+
+Started GET "/admin/login" for ::1 at 2022-12-27 04:24:41 +0200
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Rendering layout /home/alinajuly/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/layouts/active_admin_logged_out.html.erb
+  Rendering /home/alinajuly/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out
+  Rendered /home/alinajuly/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/active_admin/devise/shared/_links.erb (Duration: 2.4ms | Allocations: 659)
+  Rendered /home/alinajuly/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (Duration: 21.9ms | Allocations: 9961)
+  Rendered layout /home/alinajuly/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/layouts/active_admin_logged_out.html.erb (Duration: 46.3ms | Allocations: 22904)
+Completed 200 OK in 63ms (Views: 49.5ms | ActiveRecord: 4.6ms | Allocations: 26373)
+
+
+Started POST "/admin/login" for ::1 at 2022-12-27 04:24:53 +0200
+Processing by ActiveAdmin::Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "admin_user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Login"}
+  [1m[36mAdminUser Load (2.7ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."email" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdminUser Update (1.0ms)[0m  [1m[33mUPDATE "admin_users" SET "remember_created_at" = $1, "updated_at" = $2 WHERE "admin_users"."id" = $3[0m  [["remember_created_at", "2022-12-27 02:24:54.202299"], ["updated_at", "2022-12-27 02:24:54.202836"], ["id", 1]]
+  [1m[36mTRANSACTION (9.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 364ms (ActiveRecord: 13.7ms | Allocations: 7437)
+
+
+Started GET "/admin" for ::1 at 2022-12-27 04:24:54 +0200
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAdminUser Load (0.4ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/alinajuly/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/active_admin/page/index.html.arb
+  Rendered /home/alinajuly/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/active_admin/page/index.html.arb (Duration: 32.4ms | Allocations: 17317)
+Completed 200 OK in 67ms (Views: 34.4ms | ActiveRecord: 0.9ms | Allocations: 23499)
+
+
+Started GET "/admin/products" for ::1 at 2022-12-27 04:24:59 +0200
+Processing by Admin::ProductsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAdminUser Load (0.4ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/alinajuly/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."id" desc LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered /home/alinajuly/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 147.9ms | Allocations: 75749)
+Completed 200 OK in 161ms (Views: 147.1ms | ActiveRecord: 3.8ms | Allocations: 80205)
+
+
+Started GET "/admin/comments" for ::1 at 2022-12-27 04:25:03 +0200
+Processing by Admin::CommentsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/alinajuly/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mActiveAdmin::Comment Count (3.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."namespace" = $1[0m  [["namespace", "admin"]]
+  [1m[36mActiveAdmin::Comment Load (0.7ms)[0m  [1m[34mSELECT "active_admin_comments".* FROM "active_admin_comments" WHERE "active_admin_comments"."namespace" = $1 ORDER BY "active_admin_comments"."id" desc LIMIT $2 OFFSET $3[0m  [["namespace", "admin"], ["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mActiveAdmin::Comment Pluck (0.8ms)[0m  [1m[34mSELECT DISTINCT "active_admin_comments"."resource_type" FROM "active_admin_comments" ORDER BY resource_type asc[0m
+  [1m[36mActiveAdmin::Comment Pluck (0.6ms)[0m  [1m[34mSELECT DISTINCT "active_admin_comments"."author_type" FROM "active_admin_comments" ORDER BY author_type asc[0m
+  Rendered /home/alinajuly/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 86.6ms | Allocations: 32922)
+Completed 200 OK in 107ms (Views: 83.5ms | ActiveRecord: 11.6ms | Allocations: 37518)
+
+
+Started GET "/admin/categories" for ::1 at 2022-12-27 04:25:04 +0200
+Processing by Admin::CategoriesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/alinajuly/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."id" desc LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered /home/alinajuly/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 71.9ms | Allocations: 37053)
+Completed 200 OK in 86ms (Views: 73.3ms | ActiveRecord: 2.1ms | Allocations: 40810)
+
+
+Started GET "/admin/products" for ::1 at 2022-12-27 04:25:05 +0200
+Processing by Admin::ProductsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/alinajuly/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."id" desc LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered /home/alinajuly/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 138.6ms | Allocations: 65021)
+Completed 200 OK in 149ms (Views: 136.4ms | ActiveRecord: 4.0ms | Allocations: 68124)
+
+
+Started GET "/categories/3" for ::1 at 2022-12-27 04:25:11 +0200
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:12:in `set_category'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."category_id" = $1[0m  [["category_id", 3]]
+  ↳ app/views/products/_products_index.html.erb:3
+  Rendered products/_products_index.html.erb (Duration: 5.2ms | Allocations: 2145)
+  Rendered categories/show.html.erb within layouts/application (Duration: 6.0ms | Allocations: 2340)
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/template/_sidebar.html.erb:14
+  Rendered layouts/template/_sidebar.html.erb (Duration: 2.7ms | Allocations: 774)
+  Rendered layouts/template/_navbar.html.erb (Duration: 0.1ms | Allocations: 38)
+  Rendered layout layouts/application.html.erb (Duration: 21.5ms | Allocations: 9626)
+Completed 200 OK in 54ms (Views: 23.0ms | ActiveRecord: 1.7ms | Allocations: 14747)
+
+
+Started GET "/categories/class=%22card-img-top%22" for ::1 at 2022-12-27 04:25:11 +0200
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"class=\"card-img-top\""}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:12:in `set_category'
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.7ms | Allocations: 3069)
+
+
+  
+NoMethodError (undefined method `products' for nil:NilClass
+
+    @products = @category.products
+                         ^^^^^^^^^):
+  
+app/controllers/categories_controller.rb:5:in `show'
+Started GET "/categories/4" for ::1 at 2022-12-27 04:25:12 +0200
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:12:in `set_category'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."category_id" = $1[0m  [["category_id", 4]]
+  ↳ app/views/products/_products_index.html.erb:3
+  Rendered products/_products_index.html.erb (Duration: 5.0ms | Allocations: 851)
+  Rendered categories/show.html.erb within layouts/application (Duration: 5.5ms | Allocations: 917)
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/template/_sidebar.html.erb:14
+  Rendered layouts/template/_sidebar.html.erb (Duration: 2.7ms | Allocations: 764)
+  Rendered layouts/template/_navbar.html.erb (Duration: 0.1ms | Allocations: 35)
+  Rendered layout layouts/application.html.erb (Duration: 20.4ms | Allocations: 7970)
+Completed 200 OK in 29ms (Views: 20.2ms | ActiveRecord: 1.8ms | Allocations: 10092)
+
+
+Started GET "/categories/class=%22card-img-top%22" for ::1 at 2022-12-27 04:25:13 +0200
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"class=\"card-img-top\""}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:12:in `set_category'
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.5ms | Allocations: 2929)
+
+
+  
+NoMethodError (undefined method `products' for nil:NilClass
+
+    @products = @category.products
+                         ^^^^^^^^^):
+  
+app/controllers/categories_controller.rb:5:in `show'
+Started GET "/categories/2" for ::1 at 2022-12-27 04:25:13 +0200
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:12:in `set_category'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."category_id" = $1[0m  [["category_id", 2]]
+  ↳ app/views/products/_products_index.html.erb:3
+  Rendered products/_products_index.html.erb (Duration: 5.3ms | Allocations: 1672)
+  Rendered categories/show.html.erb within layouts/application (Duration: 5.9ms | Allocations: 1738)
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/template/_sidebar.html.erb:14
+  Rendered layouts/template/_sidebar.html.erb (Duration: 2.9ms | Allocations: 764)
+  Rendered layouts/template/_navbar.html.erb (Duration: 0.4ms | Allocations: 35)
+  Rendered layout layouts/application.html.erb (Duration: 20.2ms | Allocations: 8791)
+Completed 200 OK in 26ms (Views: 19.7ms | ActiveRecord: 1.6ms | Allocations: 10914)
+
+
+Started GET "/categories/class=%22card-img-top%22" for ::1 at 2022-12-27 04:25:14 +0200
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"class=\"card-img-top\""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:12:in `set_category'
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.7ms | Allocations: 2935)
+
+
+  
+NoMethodError (undefined method `products' for nil:NilClass
+
+    @products = @category.products
+                         ^^^^^^^^^):
+  
+app/controllers/categories_controller.rb:5:in `show'
+Started GET "/products/2" for ::1 at 2022-12-27 04:25:14 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:16:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/products/_products_show.html.erb:9
+  Rendered products/_products_show.html.erb (Duration: 4.5ms | Allocations: 1083)
+  Rendered products/show.html.erb within layouts/application (Duration: 5.4ms | Allocations: 1296)
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/template/_sidebar.html.erb:14
+  Rendered layouts/template/_sidebar.html.erb (Duration: 2.7ms | Allocations: 764)
+  Rendered layouts/template/_navbar.html.erb (Duration: 0.1ms | Allocations: 35)
+  Rendered layout layouts/application.html.erb (Duration: 20.3ms | Allocations: 8349)
+Completed 200 OK in 28ms (Views: 20.0ms | ActiveRecord: 1.6ms | Allocations: 11083)
+
+
+Started GET "/products/class=%22card-img-top%22" for ::1 at 2022-12-27 04:25:14 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"class=\"card-img-top\""}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:16:in `set_product'
+Couldn't find Product with 'id'=class="card-img-top"
+Filter chain halted as :set_product rendered or redirected
+Completed 404 Not Found in 7ms (Views: 0.3ms | ActiveRecord: 0.7ms | Allocations: 2315)
+
+
+Started GET "/categories/2" for ::1 at 2022-12-27 04:25:18 +0200
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/categories/class=%22card-img-top%22" for ::1 at 2022-12-27 04:25:18 +0200
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:12:in `set_category'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."category_id" = $1[0m  [["category_id", 2]]
+  ↳ app/views/products/_products_index.html.erb:3
+  Rendered products/_products_index.html.erb (Duration: 5.4ms | Allocations: 1673)
+  Rendered categories/show.html.erb within layouts/application (Duration: 6.0ms | Allocations: 1739)
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/template/_sidebar.html.erb:14
+  Rendered layouts/template/_sidebar.html.erb (Duration: 2.9ms | Allocations: 787)
+  Rendered layouts/template/_navbar.html.erb (Duration: 0.1ms | Allocations: 35)
+  Rendered layout layouts/application.html.erb (Duration: 29.7ms | Allocations: 9122)
+Completed 200 OK in 39ms (Views: 29.5ms | ActiveRecord: 1.8ms | Allocations: 11754)
+
+
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"class=\"card-img-top\""}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:12:in `set_category'
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.8ms | Allocations: 2944)
+
+
+  
+NoMethodError (undefined method `products' for nil:NilClass
+
+    @products = @category.products
+                         ^^^^^^^^^):
+  
+app/controllers/categories_controller.rb:5:in `show'
+Started GET "/categories/3" for ::1 at 2022-12-27 04:25:19 +0200
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Started GET "/categories/class=%22card-img-top%22" for ::1 at 2022-12-27 04:25:19 +0200
+  ↳ app/controllers/categories_controller.rb:12:in `set_category'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."category_id" = $1[0m  [["category_id", 3]]
+  ↳ app/views/products/_products_index.html.erb:3
+  Rendered products/_products_index.html.erb (Duration: 3.9ms | Allocations: 850)
+  Rendered categories/show.html.erb within layouts/application (Duration: 4.2ms | Allocations: 916)
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/template/_sidebar.html.erb:14
+  Rendered layouts/template/_sidebar.html.erb (Duration: 2.9ms | Allocations: 795)
+  Rendered layouts/template/_navbar.html.erb (Duration: 0.1ms | Allocations: 35)
+  Rendered layout layouts/application.html.erb (Duration: 25.0ms | Allocations: 8296)
+Completed 200 OK in 34ms (Views: 24.9ms | ActiveRecord: 1.6ms | Allocations: 10959)
+
+
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"class=\"card-img-top\""}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:12:in `set_category'
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.8ms | Allocations: 2917)
+
+
+  
+NoMethodError (undefined method `products' for nil:NilClass
+
+    @products = @category.products
+                         ^^^^^^^^^):
+  
+app/controllers/categories_controller.rb:5:in `show'
+Started GET "/categories/2" for ::1 at 2022-12-27 04:25:20 +0200
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:12:in `set_category'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."category_id" = $1[0m  [["category_id", 2]]
+  ↳ app/views/products/_products_index.html.erb:3
+  Rendered products/_products_index.html.erb (Duration: 5.2ms | Allocations: 1733)
+  Rendered categories/show.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1805)
+Started GET "/categories/class=%22card-img-top%22" for ::1 at 2022-12-27 04:25:20 +0200
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/template/_sidebar.html.erb:14
+  Rendered layouts/template/_sidebar.html.erb (Duration: 2.8ms | Allocations: 767)
+  Rendered layouts/template/_navbar.html.erb (Duration: 0.1ms | Allocations: 35)
+  Rendered layout layouts/application.html.erb (Duration: 26.4ms | Allocations: 9467)
+Completed 200 OK in 35ms (Views: 26.2ms | ActiveRecord: 1.9ms | Allocations: 11714)
+
+
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"class=\"card-img-top\""}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:12:in `set_category'
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.5ms | Allocations: 2935)
+
+
+  
+NoMethodError (undefined method `products' for nil:NilClass
+
+    @products = @category.products
+                         ^^^^^^^^^):
+  
+app/controllers/categories_controller.rb:5:in `show'
+Started GET "/products/2" for ::1 at 2022-12-27 04:25:21 +0200
+Started GET "/products/class=%22card-img-top%22" for ::1 at 2022-12-27 04:25:21 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:16:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/products/_products_show.html.erb:9
+  Rendered products/_products_show.html.erb (Duration: 4.5ms | Allocations: 903)
+  Rendered products/show.html.erb within layouts/application (Duration: 4.9ms | Allocations: 971)
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"class=\"card-img-top\""}
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/template/_sidebar.html.erb:14
+  Rendered layouts/template/_sidebar.html.erb (Duration: 3.2ms | Allocations: 906)
+  Rendered layouts/template/_navbar.html.erb (Duration: 0.1ms | Allocations: 35)
+  Rendered layout layouts/application.html.erb (Duration: 30.8ms | Allocations: 10128)
+Completed 200 OK in 41ms (Views: 30.7ms | ActiveRecord: 2.3ms | Allocations: 12428)
+
+
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:16:in `set_product'
+Couldn't find Product with 'id'=class="card-img-top"
+Filter chain halted as :set_product rendered or redirected
+Completed 404 Not Found in 34ms (Views: 0.3ms | ActiveRecord: 15.4ms | Allocations: 9480)
+
+
+Started GET "/products/class=%22card-img-top%22" for ::1 at 2022-12-27 04:25:21 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"class=\"card-img-top\""}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:16:in `set_product'
+Couldn't find Product with 'id'=class="card-img-top"
+Filter chain halted as :set_product rendered or redirected
+Completed 404 Not Found in 7ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 2292)
+
+
+Started GET "/products" for ::1 at 2022-12-27 04:25:24 +0200
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/_products_index.html.erb:3
+  Rendered products/_products_index.html.erb (Duration: 6.3ms | Allocations: 1879)
+  Rendered products/index.html.erb within layouts/application (Duration: 6.6ms | Allocations: 1945)
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/template/_sidebar.html.erb:14
+  Rendered layouts/template/_sidebar.html.erb (Duration: 2.8ms | Allocations: 764)
+  Rendered layouts/template/_navbar.html.erb (Duration: 0.1ms | Allocations: 35)
+  Rendered layout layouts/application.html.erb (Duration: 24.3ms | Allocations: 8902)
+Completed 200 OK in 33ms (Views: 24.0ms | ActiveRecord: 2.0ms | Allocations: 10492)
+
+
+Started GET "/class=%22card-img-top%22" for ::1 at 2022-12-27 04:25:24 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/class=%22card-img-top%22"):
+  
+Started GET "/products" for ::1 at 2022-12-27 22:43:29 +0200
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/_products_index.html.erb:3
+  Rendered products/_products_index.html.erb (Duration: 7.4ms | Allocations: 1880)
+  Rendered products/index.html.erb within layouts/application (Duration: 7.7ms | Allocations: 1946)
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/template/_sidebar.html.erb:14
+  Rendered layouts/template/_sidebar.html.erb (Duration: 3.0ms | Allocations: 764)
+  Rendered layouts/template/_navbar.html.erb (Duration: 0.1ms | Allocations: 35)
+  Rendered layout layouts/application.html.erb (Duration: 28.4ms | Allocations: 9007)
+Completed 200 OK in 35ms (Views: 28.2ms | ActiveRecord: 1.5ms | Allocations: 10616)
+
+
+Started GET "/class=%22card-img-top%22" for ::1 at 2022-12-27 22:43:29 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/class=%22card-img-top%22"):
+  
+Started GET "/admin/products" for ::1 at 2022-12-27 22:43:34 +0200
+Processing by Admin::ProductsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/alinajuly/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."id" desc LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered /home/alinajuly/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 133.0ms | Allocations: 65642)
+Completed 200 OK in 146ms (Views: 131.4ms | ActiveRecord: 3.4ms | Allocations: 68641)
+
+
+Started GET "/products" for ::1 at 2022-12-27 22:46:24 +0200
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/_products_index.html.erb:3
+  Rendered products/_products_index.html.erb (Duration: 6.8ms | Allocations: 1879)
+  Rendered products/index.html.erb within layouts/application (Duration: 7.2ms | Allocations: 1945)
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/template/_sidebar.html.erb:14
+  Rendered layouts/template/_sidebar.html.erb (Duration: 2.6ms | Allocations: 764)
+  Rendered layouts/template/_navbar.html.erb (Duration: 0.1ms | Allocations: 35)
+  Rendered layout layouts/application.html.erb (Duration: 10024.7ms | Allocations: 40982)
+Completed 200 OK in 10030ms (Views: 10024.5ms | ActiveRecord: 1.4ms | Allocations: 42594)
+
+
+Started GET "/class=%22card-img-top%22" for ::1 at 2022-12-27 22:46:35 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/class=%22card-img-top%22"):
+  
+Started GET "/products/2" for ::1 at 2022-12-27 22:46:38 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:16:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/products/_products_show.html.erb:9
+  Rendered products/_products_show.html.erb (Duration: 3.3ms | Allocations: 883)
+  Rendered products/show.html.erb within layouts/application (Duration: 3.5ms | Allocations: 949)
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/template/_sidebar.html.erb:14
+  Rendered layouts/template/_sidebar.html.erb (Duration: 3.0ms | Allocations: 764)
+  Rendered layouts/template/_navbar.html.erb (Duration: 0.1ms | Allocations: 35)
+  Rendered layout layouts/application.html.erb (Duration: 18.6ms | Allocations: 7913)
+Completed 200 OK in 26ms (Views: 18.4ms | ActiveRecord: 1.7ms | Allocations: 10002)
+
+
+Started GET "/products/class=%22card-img-top%22" for ::1 at 2022-12-27 22:46:38 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"class=\"card-img-top\""}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:16:in `set_product'
+Couldn't find Product with 'id'=class="card-img-top"
+Filter chain halted as :set_product rendered or redirected
+Completed 404 Not Found in 7ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 2288)
+
+
+Started GET "/products" for ::1 at 2022-12-27 22:46:40 +0200
+Started GET "/class=%22card-img-top%22" for ::1 at 2022-12-27 22:46:40 +0200
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/_products_index.html.erb:3
+  Rendered products/_products_index.html.erb (Duration: 5.1ms | Allocations: 2027)
+  Rendered products/index.html.erb within layouts/application (Duration: 5.6ms | Allocations: 2099)
+  
+ActionController::RoutingError (No route matches [GET] "/class=%22card-img-top%22"):
+  
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/template/_sidebar.html.erb:14
+  Rendered layouts/template/_sidebar.html.erb (Duration: 4.9ms | Allocations: 1698)
+  Rendered layouts/template/_navbar.html.erb (Duration: 0.2ms | Allocations: 35)
+  Rendered layout layouts/application.html.erb (Duration: 71.0ms | Allocations: 25887)
+Completed 200 OK in 79ms (Views: 70.7ms | ActiveRecord: 1.8ms | Allocations: 27644)
+
+
