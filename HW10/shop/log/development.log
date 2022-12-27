@@ -1714,3 +1714,170 @@ ActionController::RoutingError (No route matches [GET] "/class=%22card-img-top%2
 Completed 200 OK in 79ms (Views: 70.7ms | ActiveRecord: 1.8ms | Allocations: 27644)
 
 
+Started GET "/products" for ::1 at 2022-12-27 22:51:50 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/_products_index.html.erb:3
+  Rendered products/_products_index.html.erb (Duration: 24.6ms | Allocations: 7238)
+  Rendered products/index.html.erb within layouts/application (Duration: 26.9ms | Allocations: 7735)
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/template/_sidebar.html.erb:14
+  Rendered layouts/template/_sidebar.html.erb (Duration: 13.9ms | Allocations: 2992)
+  Rendered layouts/template/_navbar.html.erb (Duration: 0.6ms | Allocations: 137)
+  Rendered layout layouts/application.html.erb (Duration: 276.6ms | Allocations: 105312)
+Completed 200 OK in 320ms (Views: 268.0ms | ActiveRecord: 24.0ms | Allocations: 117061)
+
+
+Started GET "/class=%22card-img-top%22" for ::1 at 2022-12-27 22:51:50 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/class=%22card-img-top%22"):
+  
+Started GET "/products" for ::1 at 2022-12-27 22:52:31 +0200
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/_products_index.html.erb:3
+  Rendered products/_products_index.html.erb (Duration: 6.7ms | Allocations: 2262)
+  Rendered products/index.html.erb within layouts/application (Duration: 8.0ms | Allocations: 2509)
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/template/_sidebar.html.erb:14
+  Rendered layouts/template/_sidebar.html.erb (Duration: 3.7ms | Allocations: 951)
+  Rendered layouts/template/_navbar.html.erb (Duration: 0.5ms | Allocations: 133)
+  Rendered layout layouts/application.html.erb (Duration: 27.3ms | Allocations: 10394)
+Completed 200 OK in 36ms (Views: 29.4ms | ActiveRecord: 1.4ms | Allocations: 12823)
+
+
+Started GET "/class=%22card-img-top%22" for ::1 at 2022-12-27 22:52:31 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/class=%22card-img-top%22"):
+  
+Started GET "/users/sign_out" for ::1 at 2022-12-27 22:52:40 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdminUser Update (0.7ms)[0m  [1m[33mUPDATE "admin_users" SET "remember_created_at" = $1, "updated_at" = $2 WHERE "admin_users"."id" = $3[0m  [["remember_created_at", nil], ["updated_at", "2022-12-27 20:52:40.631910"], ["id", 1]]
+  [1m[36mTRANSACTION (34.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 83ms (ActiveRecord: 41.4ms | Allocations: 13435)
+
+
+Started GET "/" for ::1 at 2022-12-27 22:52:40 +0200
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms | Allocations: 405)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-12-27 22:52:40 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.7ms | Allocations: 671)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 9.8ms | Allocations: 3333)
+  Rendered layouts/template/_sidebar.html.erb (Duration: 0.3ms | Allocations: 68)
+  Rendered layouts/template/_navbar.html.erb (Duration: 0.2ms | Allocations: 47)
+  Rendered layout layouts/application.html.erb (Duration: 26.4ms | Allocations: 9899)
+Completed 200 OK in 33ms (Views: 29.3ms | ActiveRecord: 0.0ms | Allocations: 11423)
+
+
+Started GET "/users/class=%22card-img-top%22" for ::1 at 2022-12-27 22:52:40 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/users/class=%22card-img-top%22"):
+  
+Started GET "/" for ::1 at 2022-12-27 22:52:42 +0200
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 305)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-12-27 22:52:42 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 131)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1235)
+  Rendered layouts/template/_sidebar.html.erb (Duration: 0.2ms | Allocations: 50)
+  Rendered layouts/template/_navbar.html.erb (Duration: 0.1ms | Allocations: 35)
+  Rendered layout layouts/application.html.erb (Duration: 15.6ms | Allocations: 7574)
+Completed 200 OK in 18ms (Views: 16.5ms | ActiveRecord: 0.0ms | Allocations: 8262)
+
+
+Started GET "/" for ::1 at 2022-12-27 22:52:44 +0200
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 299)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-12-27 22:52:44 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 131)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.9ms | Allocations: 1223)
+  Rendered layouts/template/_sidebar.html.erb (Duration: 0.3ms | Allocations: 50)
+  Rendered layouts/template/_navbar.html.erb (Duration: 0.2ms | Allocations: 35)
+  Rendered layout layouts/application.html.erb (Duration: 18.5ms | Allocations: 7460)
+Completed 200 OK in 21ms (Views: 19.5ms | ActiveRecord: 0.0ms | Allocations: 8088)
+
+
+Started GET "/" for ::1 at 2022-12-27 22:52:47 +0200
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 273)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-12-27 22:52:47 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 131)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1223)
+  Rendered layouts/template/_sidebar.html.erb (Duration: 0.2ms | Allocations: 50)
+  Rendered layouts/template/_navbar.html.erb (Duration: 0.2ms | Allocations: 35)
+  Rendered layout layouts/application.html.erb (Duration: 18.0ms | Allocations: 7461)
+Completed 200 OK in 20ms (Views: 18.9ms | ActiveRecord: 0.0ms | Allocations: 8109)
+
+
+Started GET "/" for ::1 at 2022-12-27 22:52:51 +0200
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 284)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-12-27 22:52:51 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 131)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1223)
+  Rendered layouts/template/_sidebar.html.erb (Duration: 0.5ms | Allocations: 50)
+  Rendered layouts/template/_navbar.html.erb (Duration: 0.1ms | Allocations: 35)
+  Rendered layout layouts/application.html.erb (Duration: 15.4ms | Allocations: 7458)
+Completed 200 OK in 17ms (Views: 16.2ms | ActiveRecord: 0.0ms | Allocations: 8113)
+
+
+Started GET "/users/sign_out" for ::1 at 2022-12-27 22:53:00 +0200
+Processing by Devise::SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 458)
+
+
+Started GET "/" for ::1 at 2022-12-27 22:53:00 +0200
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 287)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-12-27 22:53:00 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 131)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 13.7ms | Allocations: 1223)
+  Rendered layouts/template/_sidebar.html.erb (Duration: 0.3ms | Allocations: 50)
+  Rendered layouts/template/_navbar.html.erb (Duration: 0.2ms | Allocations: 35)
+  Rendered layout layouts/application.html.erb (Duration: 27.6ms | Allocations: 7562)
+Completed 200 OK in 30ms (Views: 28.5ms | ActiveRecord: 0.0ms | Allocations: 8171)
+
+
