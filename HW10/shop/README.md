@@ -35,3 +35,7 @@
 ## To log in as user
 
 * visit `http://localhost:3000`
+
+`User: 'user@example.com'`
+
+`Password: password`
