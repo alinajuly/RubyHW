@@ -18,112 +18,36 @@ Product.create(name: 'Arctic Monkeys - AM',
                price: 1000.00,
                category_id: 1)
 Product.create(name: 'Pink Floyd - Dark Side Of The Moon (remastered)',
-               description: 'TrackList:
-               A1. Speak to Me
-               A2. Breathe in the Air
-               A3. On the Run
-               A4. Time
-               A5. The Great Gig in the Sky
-                
-               B1. Money
-               B2. Us and Them
-               B3. Any Colour You Like
-               B4. Brain Damage
-               B5. Eclipse',
+               description: 'TrackList: A1. Speak to Me A2. Breathe in the Air A3. On the Run A4. Time A5. The Great Gig in the Sky B1. Money B2. Us and Them B3. Any Colour You Like B4. Brain Damage B5. Eclipse',
                image: "https://vinylrecords.com.ua/image/cache/catalog/29/5099902987613-1000x1000.jpg",
                price: 1500.00,
                category_id: 2)
 Product.create(name: 'Nirvana - Nevermind (30th Anniversary Edition)',
                description: 'TrackList:
-               A1. Smells Like Teen Spirit 
-               A2. In Bloom 
-               A3. Come As You Are 
-               A4. Breed 
-               A5. Lithium 
-               A6. Polly 
-                
-               B1. Territorial Pissings
-               B2. Drain You 
-               B3. Lounge Act 
-               B4. Stay Away 
-               B5. On A Plain
-               B6. Something In The Way
-                
-               7"
-               A1. Endless, Nameless
-                
-               B1. Even In His Youth 
-               B2. Aneurysm',
+               A1. Smells Like Teen Spirit A2. In Bloom A3. Come As You Are A4. Breed A5. Lithium A6. Polly B1. Territorial Pissing B2. Drain You B3. Lounge Act B4. Stay Away B5. On A Plain B6. Something In The Way 7" A1. Endless, Nameless B1. Even In His Youth B2. Aneurysm',
                image: "https://vinylrecords.com.ua/image/cache/catalog/49/R-20914213-1636728396-2123.jpeg-1000x1000.jpg",
                price: 1900.00,
                category_id: 2)
 Product.create(name: 'Massive Attack - Mezzanine',
-               description: 'TrackList:
-               Disc 1
-               1. Angel
-               2. Risingson
-               3. Teardrop
-               4. Inertia Creeps
-               5. Exchange
-               6. Dissolved Girl
-               7. Disc 2
-               8. Man Next Door
-               9. Black Milk
-               10. Mezzanine
-               11. Group Four',
+               description: 'TrackList: 1. Angel 2. Risingson 3. Teardrop 4. Inertia Creeps 5. Exchange 6. Dissolved Girl 7. Disc 2 8. Man Next Door 9. Black Milk 10. Mezzanine 11. Group Four',
                image: "https://vinylrecords.com.ua/image/cache/catalog/covers_4/mezzanine-1000x1000.jpg",
                price: 1840.00,
                category_id: 3)
 Product.create(name: 'Chemical Brothers - Surender',
-               description: 'TrackList:
-               1. Response
-               2. Under the Influence
-               3. Out of Control
-               4. Orange Wedge
-               5. Let Forever Be
-               6. The Sunshine Underground
-               7. Asleep from Day
-               8. Got Glint?
-               9. Hey Boy Hey Girl
-               10. Surrender or Racing The Tide
-               11. Dream On',
+               description: 'TrackList: 1. Response 2. Under the Influence 3. Out of Control 4. Orange Wedge 5. Let Forever Be 6. The Sunshine Underground 7. Asleep from Day 8. Got Glint? 9. Hey Boy Hey Girl 10. Surrender or Racing The Tide 11. Dream On',
                image: "https://vinylrecords.com.ua/image/cache/catalog/covers_4/20091021162000!Surrender_album_cover-1000x1000.jpg",
                price: 850.00,
                category_id: 3)
 Product.create(name: 'Joy Division - Unknown Pleasures',
-               description: 'TrackList:
-               1. Disorder
-               2. Day of the Lords
-               3. Candidate
-               4. Insight
-               5. New Dawn Fades
-               7. She\’s Lost Control
-               8. Shadowplay
-               9. Wilderness
-               10. Interzone
-               11. I Remember Nothing',
+               description: 'TrackList: 1. Disorder 2. Day of the Lords 3. Candidate 4. Insight 5. New Dawn Fades 7. She\’s Lost Control 8. Shadowplay 9. Wilderness 10. Interzone 11. I Remember Nothing',
                image: "https://vinylrecords.com.ua/image/cache/catalog/51/joy-division-unknown-pleasures_2.800x800-1000x1000.png",
                price: 1100.00,
                category_id: 4)
 Product.create(name: 'Elvis Presley – Playlist: The Very Best ',
-               description: 'TrackList:
-               1. Love Me Tender
-               2. Loving You
-               3. Got A Lot O\' Livin\' To Do
-               4. Jailhouse Rock
-               5. (You\'re So Square) Baby I Don\'t Care
-               6. Trouble
-               7. Frankfort Special
-               8. Follow That Dream
-               9. Can\'t Help Falling In Love
-               10. I Need Somebody To Lean On
-               11. Viva Las Vegas
-               12. Bossa Nova Baby
-               13. Return To Sender
-               14. Clean Up Your Own Backyard',
-                image: "https://vinylrecords.com.ua/image/cache/catalog/123%20vinyl%201/R-15145053-1587256191-3306-1000x1000.jpg",
-                price: 590.00,
-                category_id: 5)
+               description: 'TrackList: 1. Love Me Tender 2. Loving You 3. Got A Lot O\' Livin\' To Do 4. Jailhouse Rock 5. (You\'re So Square) Baby I Don\'t Care 6. Trouble 7. Frankfort Special 8. Follow That Dream 9. Can\'t Help Falling In Love 10. I Need Somebody To Lean On 11. Viva Las Vegas 12. Bossa Nova Baby 13. Return To Sender 14. Clean Up Your Own Backyard',
+               image: "https://vinylrecords.com.ua/image/cache/catalog/123%20vinyl%201/R-15145053-1587256191-3306-1000x1000.jpg",
+               price: 590.00,
+               category_id: 5)
 Product.create(name: 'Pulp Fiction - Original Soundtrack',
                description: 'TrackList: 1. Misirlou 2. Royale With Cheese 3. Jungle Boogie 4. Let\'s Stay Together 5. Bustin\' Surfboards 6. Lonesome Town 7. Son Of A Preacher Man 8. Bullwinkle Part II 09. You Never Can Tell 0. Girl, You\'ll Be A Woman Soon 11. If Love Is A Red Dress (Hang Me In Rags) 12. Comanche 13. Flowers On The Wall 14. Personality Goes A Long Way 15. Surf Rider 16. Ezekiel',
                image: "https://vinylrecords.com.ua/image/cache/catalog/49/61SDYP3PfVL._AC_-1000x1000.jpg",
