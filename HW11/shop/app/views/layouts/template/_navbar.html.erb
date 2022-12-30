@@ -1,0 +1,9 @@
+<nav class="navbar nav-layout navbar-expand-lg bg-dark">
+  <div class="container-fluid d-flex justify-content-end">
+    <% if current_user %>
+      <button type="button" class="btn btn-light"><%= link_to 'Log out', destroy_user_session_path %></button>
+    <% else %>
+      <button type="button" class="btn btn-light"><%= link_to 'Log in', new_user_session_path %></button>
+    <% end %>
+  </div>
+</nav>
