@@ -28,7 +28,7 @@
 
 ## To log in as admin
 
-* visit `http://localhost:3000/admin` and log in as the default user:
+* visit `http://localhost:3000/admin` and log in as admin:
   
 `User: admin@example.com`
 
@@ -36,7 +36,7 @@
 
 ## To log in as user
 
-* visit `http://localhost:3000`
+* visit `http://localhost:3000` and log in as the default user:
 
 `User: 'user@example.com'`
 
