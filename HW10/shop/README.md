@@ -12,7 +12,7 @@
 
 `bundle install`
 
-* Attach `config/database.yml` acording `database copy.yml` with changes in database, username and password
+* Attach `config/database.yml` acording `config/database.yml.example` with changes in database, username and password
 
 * Type in console:
   
