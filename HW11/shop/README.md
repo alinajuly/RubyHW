@@ -12,7 +12,7 @@
 
 `bundle install`
 
-* Attach `config/database.yml` acording `database copy.yml` with changes in database, username and password
+* Attach `config/database.yml` acording `database.yml.example` with changes in database, username and password
 
 * Type in console:
   
@@ -23,6 +23,8 @@
 `rails db:seed`
 
 `rails s`
+
+## Visit `http://localhost:3000`
 
 ## To log in as admin
 

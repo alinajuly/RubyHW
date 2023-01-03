@@ -4,7 +4,7 @@
               <div class="card text-bg-dark mb-3" style="max-width: 18rem;">
         <img src=<%= @product.image %> class="card-img-top" alt=<%= @product.name %>>
         <div class="card-body">
-          <h5 class="card-title text-center"><%= link_to @product.name, @product %></h5>
+          <h5 class="card-title text-center"><%= @product.name %></h5>
             <p class="card-text"><%= @product.description %></p>
             <p class="card-text"><%= @product.category.title %></p>
             <p class="card-price"><%= number_to_currency(@product.price) %></p>
