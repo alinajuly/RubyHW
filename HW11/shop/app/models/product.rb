@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
   belongs_to :category
-  has_many :line_item, dependent: :nullify
+  has_many :line_items, dependent: :nullify
 
   validates :name, :description, :category_id, presence: true
   validates :image, presence: false
