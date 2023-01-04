@@ -34,6 +34,16 @@
             <td><b>Status:</b></td>
             <td><b><%= order.status %></b></td>
             </tr>
+            <%# TO ADD button to pay for unpaid order %>
+            <%# <% if order.unpaid? %>
+            <%# <tr> %>
+            <%# <td></td> %>
+            <%# <td></td> %>
+            <%# <td></td> %>
+            <%# <td><b>You can pay for your order</b></td> %>
+            <%# <><><%= button_to 'Proceed to payment', order_pay_path, method: :put, class: "btn btn-success" %>
+            <%# </tr> %>
+            <%# <% end %>
         </table>
       <% end %>
     <% else %>

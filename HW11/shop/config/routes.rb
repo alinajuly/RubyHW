@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   resources :line_items, only: %i[create update destroy]
   post 'line_items/:id/increase_quantity', to: 'line_items#increase_quantity', as: 'line_item_increase'
   post 'line_items/:id/decrease_quantity', to: 'line_items#decrease_quantity', as: 'line_item_decrease'
-  resources :orders, only: %i[create show]
+  resources :orders, only: %i[index create show]
   put 'orders/:id/order_pay', to: 'orders#order_pay', as: 'order_pay'
 end

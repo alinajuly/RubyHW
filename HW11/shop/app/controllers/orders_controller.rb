@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    order = current_user.orders.create(cart: current_cart, status: 'unpaid')
+    order = current_user.orders.create(cart: current_cart)
     order.update(user: current_user, cart: current_cart)
 
     redirect_to order_path(order), notice: 'Order was successfully created'
