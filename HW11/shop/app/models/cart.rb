@@ -3,7 +3,7 @@ class Cart < ApplicationRecord
   has_many :products, through: :line_items
 
   def add_product(product)
-    line_item.create(product: product, quantity: 1)
+    line_items.create(product: product, quantity: 1)
   end
 
 
