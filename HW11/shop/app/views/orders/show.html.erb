@@ -27,5 +27,6 @@
           </tr>
     </table>
     <%= button_to 'Proceed to payment', order_pay_path, method: :put, class: "btn btn-success" %>
+    <p><%= link_to "Back to cart", cart_path %></p>
   </div>
 <% end %>

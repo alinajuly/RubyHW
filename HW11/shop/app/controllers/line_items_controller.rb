@@ -5,12 +5,11 @@ class LineItemsController < ApplicationController
 
   def create
     product = Product.find(params[:product_id])
-    current_cart.add_product(product)
 
     if @line_item.present?
       @line_item.update(quantity: @line_item.quantity + 1)
     else
-      @line_item = current_cart.line_items.create(product_id: params[:product_id])
+      @line_item = current_cart.add_product(product)
     end
 
     redirect_to cart_path, notice: "#{product.name} was successfully added to the cart"
