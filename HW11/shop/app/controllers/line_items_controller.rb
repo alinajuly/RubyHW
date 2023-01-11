@@ -1,10 +1,10 @@
 class LineItemsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_line_item, only: %i[create]
   before_action :set_line_item, only: %i[destroy increase_quantity decrease_quantity]
 
   def create
     product = Product.find(params[:product_id])
+    @line_item = current_cart.line_items.find_by(product: product)
 
     if @line_item.present?
       @line_item.update(quantity: @line_item.quantity + 1)
@@ -34,10 +34,6 @@ class LineItemsController < ApplicationController
   end
 
   private
-
-  def find_line_item
-    @line_item = current_cart.line_items.find_by(product_id: params[:product_id])
-  end
 
   def set_line_item
     @line_item = LineItem.find(params[:id])

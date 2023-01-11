@@ -1,6 +1,6 @@
 <div class="container">  
   <h1>Cart</h1>
-  <% if current_cart.line_items.any? %>
+  <% if current_cart.line_items.exists? %>
     <table class="table">
       <tr>
         <th>Image</th>
