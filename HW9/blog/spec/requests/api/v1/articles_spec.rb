@@ -2,16 +2,16 @@ require 'swagger_helper'
 require 'rails_helper'
 
 RSpec.describe 'api/v1/articles', type: :request do
-  let(:author) { Author.create(name: 'Sasha') }
+  let(:author)  { Author.create(name: 'Sasha') }
   let(:article) { Article.create(title: 'Title', body: 'Body title', author_id: author.id) }
   let(:comment) { Comment.create(body: 'comment', author_id: author.id, article_id: article.id) }
-  let(:id) { article.id }
+  let(:id)      { article.id }
 
   path '/api/v1/articles' do
-    let(:tag) { Tag.create(title: 'programming') }
+    let(:tag)         { Tag.create(title: 'programming') }
     let(:author_name) { Author.create(name: 'Sasha') }
-    let(:article) { Article.create(title: 'Title', body: 'Text of body', author_id: author_name.id) }
-    let(:comment) { Comment.create(body: 'comment', author_id: author.id, article_id: article.id) }
+    let(:article)     { Article.create(title: 'Title', body: 'Text of body', author_id: author_name.id) }
+    let(:comment)     { Comment.create(body: 'comment', author_id: author.id, article_id: article.id) }
 
     get('list articles') do
       tags 'Article'
@@ -22,23 +22,26 @@ RSpec.describe 'api/v1/articles', type: :request do
       parameter name: :tags, in: :query, type: :string, description: 'To search Article by tag name'
       parameter name: :order, in: :query, type: :string, description: 'To sort Articles by title in ascending(asc) or descending(decs) order'
       response(200, 'successful') do
-        let(:tags) { article.tags.first }
+        let(:tags)          { article.tags.first }
         let(:search_phrase) { 'Title' }
-        let(:author) { 'Sasha' }
-        let(:order) { 'desc' }
-        let(:status) { 'unpublished' }
-        let(:order) { 'desc' }
+        let(:author)        { 'Sasha' }
+        let(:order)         { 'desc' }
+        let(:status)        { 'unpublished' }
+        let(:order)         { 'desc' }
 
         describe 'filters for api/v1/articles' do
           it 'should returns status response' do
             expect(response.status).to eq(200)
           end
+
           it 'search phrase in title or body of Article' do
             expect(article).to eq(Article.find_by(title: search_phrase))
           end
+
           it 'search Article by author name' do
             expect(author_name.name).to eq(Author.find_by(name: author).name)
           end
+
           it 'search Article by tag name' do
             article.tags << tag
             expect(article.tags.where(title: 'programming')).to eq(Article.first.tags)
@@ -75,6 +78,7 @@ RSpec.describe 'api/v1/articles', type: :request do
         it 'should returns status response' do
           expect(response.status).to eq(201)
         end
+
         after do |example|
           example.metadata[:response][:content] = {
             'application/json' => {
@@ -97,6 +101,7 @@ RSpec.describe 'api/v1/articles', type: :request do
         it 'should returns status response' do
           expect(response.status).to eq(200)
         end
+
         after do |example|
           example.metadata[:response][:content] = {
             'application/json' => {
@@ -126,11 +131,13 @@ RSpec.describe 'api/v1/articles', type: :request do
           it 'should returns status response' do
             expect(response.status).to eq(200)
           end
+
           it 'check putch article' do
             article.update(body: 'New text')
             expect(Article.find_by(body: 'New text')).to eq(article)
           end
         end
+
         after do |example|
           example.metadata[:response][:content] = {
             'application/json' => {
@@ -160,11 +167,13 @@ RSpec.describe 'api/v1/articles', type: :request do
           it 'should returns status response' do
             expect(response.status).to eq(200)
           end
+
           it 'check put article' do
             article.update(body: 'New text')
             expect(Article.find_by(body: 'New text')).to eq(article)
           end
         end
+
         after do |example|
           example.metadata[:response][:content] = {
             'application/json' => {
@@ -184,6 +193,7 @@ RSpec.describe 'api/v1/articles', type: :request do
           it 'should returns status response' do
             expect(response.status).to eq(200)
           end
+          
           it 'delete article' do
             article.destroy
             expect(Article.count).to eq(0)

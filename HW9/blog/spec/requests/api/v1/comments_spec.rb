@@ -2,11 +2,11 @@ require 'swagger_helper'
 require 'rails_helper'
 
 RSpec.describe 'api/v1/comments', type: :request do
-  let(:author) { Author.create(name: 'Author name') }
+  let(:author)  { Author.create(name: 'Author name') }
   let(:article) { Article.create(title: 'Title', body: 'Body title', author_id: author.id) }
   let(:comment) { Comment.create(body: 'Body comment', article_id: article.id, author_id: author.id) }
-  let(:id) { comment.id }
-  let(:limit) { '10' }
+  let(:id)      { comment.id }
+  let(:limit)   { '10' }
 
   path '/api/v1/comments' do
     get('list comments') do
@@ -63,6 +63,7 @@ RSpec.describe 'api/v1/comments', type: :request do
         it 'should returns status response' do
           expect(response.status).to eq(200)
         end
+
         after do |example|
           example.metadata[:response][:content] = {
             'application/json' => {
@@ -144,6 +145,7 @@ RSpec.describe 'api/v1/comments', type: :request do
           it 'should returns status response' do
             expect(response.status).to eq(200)
           end
+          
           it 'delete comment' do
             article.destroy
             expect(Comment.count).to eq(0)
