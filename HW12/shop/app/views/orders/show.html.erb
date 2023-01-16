@@ -1,5 +1,5 @@
 <% if current_user %>
-  <div class="container">
+  <div class='container'>
     <h1>Order #<%= @order.id %></h1>
     <table class='table'>
       <tr>
@@ -26,7 +26,7 @@
           <td><b><%= number_to_currency @order.cart.total_price %></b></td>
           </tr>
     </table>
-    <%= button_to 'Proceed to payment', order_pay_path, method: :put, class: "btn btn-success" %>
-    <p><%= link_to "Back to cart", cart_path %></p>
+    <%= button_to 'Proceed to payment', order_pay_path, method: :put, class: 'btn btn-success' %>
+    <p><%= link_to 'Back to cart', cart_path %></p>
   </div>
 <% end %>

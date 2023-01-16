@@ -1,5 +1,5 @@
 <% if current_user %>
-  <div class="container">
+  <div class='container'>
     <% if @orders.present? %>
       <% @orders.each do |order| %>
         <h1>Order #<%= order.id %></h1>
@@ -33,7 +33,7 @@
             <td></td>
             <td><b>Status:</b></td>
             <td><% if order.status == 'unpaid' %>
-            <%= button_to 'Proceed to payment', order_pay_path(order), method: :put, class: "btn btn-success" %>
+            <%= button_to 'Proceed to payment', order_pay_path(order), method: :put, class: 'btn btn-success' %>
             <% else %>
             <b><%= order.status %></b>
             <% end %>
