@@ -12,7 +12,4 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root 'products#index'
   get '/cart', to: 'carts#show', as: :cart
-  # put '/orders/payment', to: 'orders#payment', as: 'order_payment'
-  # put 'orders/:id/order_pay', to: 'orders#order_pay', as: 'order_pay'
-  # put '/orders/confirm_payment', to: 'orders#confirm_payment', as: 'confirm_payment'
 end

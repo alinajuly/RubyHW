@@ -16,16 +16,6 @@ class OrdersController < ApplicationController
 
   def show; end
 
-  # def payment
-  #   @order = current_user.orders.find(params[:format])
-  # end
-
-  # def confirm_payment
-  #   @order.paid!
-
-  #   redirect_to orders_path, notice: 'Order was successfully payed'
-  # end
-
   def destroy
     @order.destroy
 
