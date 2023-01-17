@@ -18,15 +18,15 @@
           <td><%= number_to_currency(line_item.total_price) %></td>
         </tr>
       <% end%>
-          <tr>
+        <tr>
           <td></td>
           <td></td>
           <td></td>
           <td><b>Total price:</b></td>
           <td><b><%= number_to_currency @order.cart.total_price %></b></td>
-          </tr>
+        </tr>
     </table>
-    <%= button_to 'Proceed to payment', order_pay_path, method: :put, class: 'btn btn-success' %>
+    <%= button_to 'Proceed to payment', edit_payment_path(@order), method: :get, class: 'btn btn-success' %>
     <p><%= link_to 'Back to cart', cart_path %></p>
   </div>
 <% end %>

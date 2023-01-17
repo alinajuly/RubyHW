@@ -31,19 +31,25 @@
             <td></td>
             <td></td>
             <td></td>
-            <td><b>Status:</b></td>
-            <td><% if order.status == 'unpaid' %>
-            <%= button_to 'Proceed to payment', order_pay_path(order), method: :put, class: 'btn btn-success' %>
+            <% if order.status == 'unpaid' %>
+            <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><%= button_to 'Proceed to payment', edit_payment_path(order), method: :get, class: 'btn btn-success' %>
+            <%= button_to 'Delete', order_path(:id => order), method: :delete, class: 'btn btn-light' %></td>
             <% else %>
-            <b><%= order.status %></b>
+            <td><b>Status:</b></td>
+            <td><b><%= order.status %></b></td>
+
+            </tr>
             <% end %>
-            </td>
             </tr>
         </table>
       <% end %>
     <% else %>
-    <h1>Orders</h1>
-    <p>No items in the order.</p>
+      <h1>Orders</h1>
+      <p>No items in the order.</p>
     <% end %>
   </div>
 <% end %>

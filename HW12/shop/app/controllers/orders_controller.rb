@@ -1,32 +1,40 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_order, only: %i[show order_pay]
+  before_action :set_order, only: %i[show destroy]
 
   def index
     @orders = current_user.orders
   end
 
   def create
-    order = current_user.orders.create(cart: current_cart)
-    order.update(user: current_user, cart: current_cart)
+    @order = current_user.orders.create(cart: current_cart)
+    @order.update(user: current_user, cart: current_cart)
 
     cookies.delete(:cart_id)
-    redirect_to order_path(order), notice: 'Order was successfully created'
+    redirect_to order_path(@order), notice: 'Order was successfully created'
   end
 
-  def show
-    @order = current_user.orders.find(params[:id])
-  end
+  def show; end
 
-  def order_pay
-    @order.update(status: :paid)
+  # def payment
+  #   @order = current_user.orders.find(params[:format])
+  # end
 
-    redirect_to order_path(@order), notice: 'Order was successfully payed'
+  # def confirm_payment
+  #   @order.paid!
+
+  #   redirect_to orders_path, notice: 'Order was successfully payed'
+  # end
+
+  def destroy
+    @order.destroy
+
+    redirect_to orders_path(@order)
   end
 
   private
 
   def set_order
-    @order = Order.find_by(id: params[:id])
+    @order = current_user.orders.find(params[:id])
   end
 end
