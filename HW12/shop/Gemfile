@@ -73,4 +73,10 @@ group :development do
   # gem "spring"
 end
 
+# Pry is a runtime developer console and IRB alternative with powerful introspection capabilities
 gem "pry", "~> 0.14.1"
+
+# Add a comment summarizing the current schema
+group :development do
+  gem 'annotate'
+end
