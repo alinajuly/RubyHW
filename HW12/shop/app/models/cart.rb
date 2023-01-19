@@ -1,7 +1,7 @@
 class Cart < ApplicationRecord
   has_many :line_items, dependent: :destroy
   has_many :products, through: :line_items
-  has_one :order
+  has_one :order, dependent: :destroy
 
   def add_product(product)
     line_items.create(product: product, quantity: 1)
