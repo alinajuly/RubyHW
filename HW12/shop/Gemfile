@@ -80,3 +80,6 @@ gem "pry", "~> 0.14.1"
 group :development do
   gem 'annotate'
 end
+
+# Preview email in the default browser instead of sending it
+gem "letter_opener", group: :development
