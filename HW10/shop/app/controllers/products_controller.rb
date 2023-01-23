@@ -14,9 +14,6 @@ class ProductsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions
   def set_product
     @product = Product.find(params[:id])
-  rescue ActiveRecord::RecordNotFound => e
-    logger.info e
-    return render json: { message: 'product is not found' }, status: :not_found
   end
 
   # Only allow a list of trusted parameters through
