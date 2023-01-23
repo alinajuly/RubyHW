@@ -5,7 +5,7 @@
         <button type="button" class="btn btn-light"><%= link_to 'Cart', cart_path %></button>
         <button type="button" class="btn btn-light"><%= link_to 'Orders', orders_path %></button>
         <button type="button" class="btn btn-light"><%= link_to 'Log out', destroy_user_session_path %></button>
-      <% else %>
+      <% elsif !current_user && !current_page?(new_user_session_path) %>
         <button type="button" class="btn btn-light"><%= link_to 'Log in', new_user_session_path %></button>
       <% end %>
     </li>
