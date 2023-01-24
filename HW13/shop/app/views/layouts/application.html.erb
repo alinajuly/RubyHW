@@ -15,9 +15,10 @@
       <div class='row vh-100'>
         <%= render partial: 'layouts/template/sidebar' %>
         <!-- Contains the main content of the webpage-->
-        <div class='col-10' style='padding: 0'>
-        <%= render partial: 'layouts/template/flash_message' %>
-        <%= yield %>
+        <div class='col-10 vh-100 p-0'>
+          <%= render partial: 'layouts/template/flash_message' %>
+          <%= yield %>
+        </div>
       </div>
     </div>
   </body>
