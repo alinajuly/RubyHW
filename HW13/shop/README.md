@@ -30,7 +30,7 @@
 
 `Password: password`
 
-## To add pictures to products as admin please use
+## To upload the images to products as admin please use:
 
 * `shop/public/images`
 
