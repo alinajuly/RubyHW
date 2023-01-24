@@ -1,7 +1,7 @@
 <% if current_user %>
   <div class='container'>
     <% if @orders.present? %>
-      <% @orders.each do |order| %>
+      <% @orders.includes([cart: :line_items]).each do |order| %>
         <h1>Order #<%= order.id %></h1>
         <table class='table'>
           <tr>
@@ -11,7 +11,7 @@
             <th>Quantity</th>
             <th>Price</th>
           </tr>
-          <% order.cart.line_items.each.with_index do |line_item, index| %>
+          <% order.cart.line_items.includes([:product]).each.with_index do |line_item, index| %>
             <tr>
             <td><%= index + 1 %></td>
             <td><%= image_tag image_url(line_item.product.image), height: 100, width: 100 %></td>
