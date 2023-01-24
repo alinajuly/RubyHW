@@ -1,5 +1,5 @@
 <div class='container'>
-    <h1>Order #<%= order.id %></h1>
+    <h1>Order #<%= @order.id %></h1>
     <table class='table'>
       <tr>
         <th>#</th>
@@ -8,7 +8,7 @@
         <th>Quantity</th>
         <th>Price</th>
       </tr>
-      <% order.cart.line_items.each.with_index do |line_item, index| %>
+      <% @order.cart.line_items.each.with_index do |line_item, index| %>
         <tr>
           <td><%= index + 1 %></td>
           <td><%= image_tag line_item.product.image.variant(:thumb), alt: line_item.product.name %></td>

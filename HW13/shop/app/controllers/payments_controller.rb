@@ -10,7 +10,10 @@ class PaymentsController < ApplicationController
     @order.paid!
 
     redirect_to orders_path, notice: 'Order was successfully payed'
-    UserMailer.order_confirmation(User.last).deliver_now
+    
+    user = current_user
+    order = @order
+    UserMailer.order_confirmation(user, order).deliver_now
   end
 
   private
