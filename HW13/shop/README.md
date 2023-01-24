@@ -30,6 +30,10 @@
 
 `Password: password`
 
+## To add pictures to products as admin please use
+
+* `shop/public/images`
+
 ## To log in as user
 
 * visit `http://localhost:3000` and log in as the default user:
