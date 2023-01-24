@@ -1,6 +1,6 @@
 <div class='container'>
   <div class='row g-5 d-flex justify-content-center align-items-center vh-100'>
-    <% @products.each do |product| %>
+    <% @products.includes(image_attachment: :blob).each do |product| %>
       <div class='col-auto'>
         <div class='card text-bg-white' style='width: 20rem'>
           <% if product.image.attached? %>
