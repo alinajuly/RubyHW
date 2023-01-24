@@ -1,7 +1,7 @@
 class UserMailer < ApplicationMailer
-  def welcome_message(user)
+  def order_confirmation(user)
     @user = user
-    
-    mail(to: @user.email, subject: 'New account information')
+
+    mail(to: @user.email, subject: 'Order confirmation')
   end
 end
