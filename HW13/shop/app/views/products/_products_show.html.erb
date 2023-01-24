@@ -1,8 +1,12 @@
 <div class='container'>
   <div class='row gy-5 d-flex justify-content-center align-items-center vh-100'>
       <div class='col-auto'>
-        <div class='card text-bg-dark mb-3' style='max-width: 18rem'>
-          <img src=<%= @product.image %> class='card-img-top' alt=<%= @product.name %>>
+        <div class='card text-bg-dark mb-3' style='max-width: 40rem'>
+          <% if @product.image.attached? %>
+            <%= image_tag @product.image.variant(:main), alt: @product.name %>
+          <% else %>
+            <%= image_tag("no_image.jpg", alt: 'No image') %>
+          <% end %>
           <div class='card-body'>
             <h5 class='card-title text-center'><%= @product.name %></h5>
             <p class='card-text'><%= @product.description %></p>
