@@ -4,21 +4,29 @@
 
 * Use git clone to clone repository
 
-`git clone https://github.com/alinajuly/RubyHW.git`
+```
+git clone https://github.com/alinajuly/RubyHW.git
+```
 
 * Install the required gems (Gemfile)
   
-`gem install bundler`
-
-`bundle install`
+```
+gem install bundler
+```
+```
+bundle install
+```
 
 * Attach `config/database.yml` acording `database.yml.example` with changes in database, username and password
 
 * Type in console:
-  
-`rails db:setup`
 
-`rails s`
+```
+rails db:setup
+```
+```
+rails s
+```
 
 ## Visit `http://localhost:3000`
 
@@ -45,8 +53,10 @@
 ## To use Sidekiq
 
 * Install Redis 6.0 or greater:
-  
-`sudo apt install redis-server`
+
+```
+sudo apt install redis-server
+```
 
 * Run Sidekiq
 
