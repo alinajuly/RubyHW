@@ -86,3 +86,9 @@ gem "letter_opener", group: :development
 
 # The Bullet gem is designed to help you increase your application's performance by reducing the number of queries it makes
 gem 'bullet', '~> 7.0', '>= 7.0.7'
+
+# Sidekiq is a full-featured background job framework for Ruby
+gem 'sidekiq'
+
+# An extension to Sidekiq that pushes jobs in a scheduled way, mimicking cron utility
+gem 'sidekiq-scheduler'
