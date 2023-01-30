@@ -1,0 +1,58 @@
+<% if current_user %>
+  <div class='container'>
+    <% if @orders.present? %>
+      <% @orders.includes(cart: :line_items).each do |order| %>
+        <h1>Order #<%= order.id %></h1>
+        <table class='table'>
+          <tr>
+            <th></th>
+            <th></th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+          </tr>
+          <% order.cart.line_items.includes([product: { image_attachment: :blob }]).each.with_index do |line_item, index| %>
+            <tr>
+            <td><%= index + 1 %></td>
+            <td><% if line_item.product.image.attached? %>
+              <%= image_tag line_item.product.image.variant(:thumb), alt: line_item.product.name %>
+            <% else %>
+              <%= image_tag("no_image.jpeg", height: 200, alt: 'No image') %>
+            <% end %></td>
+            <td><%= line_item.product.name %></td>
+            <td><%= line_item.quantity %></td>
+            <td><%= number_to_currency(line_item.total_price) %></td>
+            </tr>
+          <% end %>
+            <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><b>Total price:</b></td>
+            <td><b><%= number_to_currency order.cart.total_price %></b></td>
+            </tr>
+            <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <% if order.status == 'unpaid' %>
+              <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><%= button_to 'Proceed to payment', edit_payment_path(order), method: :get, class: 'btn btn-success' %>
+              <%= button_to 'Delete', order_path(:id => order), method: :delete, class: 'btn btn-light' %></td>
+            <% else %>
+              <td><b>Status:</b></td>
+              <td><b><%= order.status %></b></td>
+              </tr>
+            <% end %>
+            </tr>
+        </table>
+      <% end %>
+    <% else %>
+      <h1>Orders</h1>
+      <p>No items in the order.</p>
+    <% end %>
+  </div>
+<% end %>
