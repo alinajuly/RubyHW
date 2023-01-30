@@ -24,7 +24,7 @@
 
 ## To log in as admin
 
-* visit `http://localhost:3000/admin` and log in as admin:
+* Open in browser `http://localhost:3000/admin` and log in as admin:
   
 `User: admin@example.com`
 
@@ -36,8 +36,26 @@
 
 ## To log in as user
 
-* visit `http://localhost:3000` and log in as the default user:
+* Open in browser `http://localhost:3000` and log in as the default user:
 
 `User: 'user@example.com'`
 
 `Password: password`
+
+## To use Sidekiq
+
+* Install Redis 6.0 or greater:
+  
+`sudo apt install redis-server`
+
+* Run Sidekiq
+
+```
+bundle exec sidekiq -C config/sidekiq.yml
+```
+
+* Open in browser
+
+```
+http://127.0.0.1:3000/admin/sidekiq
+```
