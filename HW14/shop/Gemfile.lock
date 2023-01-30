@@ -237,6 +237,8 @@ GEM
       activerecord (>= 6.1.5)
       activesupport (>= 6.1.5)
       i18n
+    redis (5.0.6)
+      redis-client (>= 0.9.0)
     redis-client (0.12.1)
       connection_pool
     reline (0.3.2)
@@ -316,6 +318,7 @@ DEPENDENCIES
   pry (~> 0.14.1)
   puma (~> 5.0)
   rails (~> 7.0.4)
+  redis (~> 5.0.6)
   sassc-rails
   sidekiq
   sidekiq-scheduler
