@@ -21,4 +21,8 @@ class Product < ApplicationRecord
 
   validates :name, :description, :category_id, presence: true
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 0 }
+
+  # to add turbo stream with Action Cable 
+  # after_create_commit -> { broadcast_prepend_to "products", partial: "products/products", locals: { product: self }, target: "products" }
+  # after_create_commit -> { broadcast_prepend_to "products"}
 end

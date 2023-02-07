@@ -8,6 +8,7 @@ ActiveAdmin.register Product do
       f.input :name
       f.input :description
       f.input :price
+      f.input :category
       f.input :image, as: :file
     end
     f.actions
