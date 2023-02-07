@@ -1,7 +1,7 @@
-<%= turbo_stream_from "products" %>
+<%= turbo_stream_from 'products' %>
 
-<div class='container'>
-  <div id='products' class='row g-5 d-flex justify-content-center align-items-center vh-100'>
+<div class="container">
+  <div id="products" class="row g-5 d-flex justify-content-center align-items-center vh-100">
     <% @products.includes(image_attachment: :blob).each do |product| %>
       <%= render partial: 'products/products', locals: { product: product } %>
     <% end %>
