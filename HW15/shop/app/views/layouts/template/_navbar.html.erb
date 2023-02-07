@@ -2,7 +2,9 @@
   <div class="container-fluid d-flex justify-content-end">
     <li>
       <% if current_user %>
-        <button type="button" class="btn btn-light"><%= link_to 'Cart', cart_path %></button>
+        <%= turbo_frame_tag "line_items_count" do %>
+          <button type="button" class="btn btn-light"><%= link_to "Cart #{current_cart.total_quantity}", cart_path %></button>
+        <% end %>
         <button type="button" class="btn btn-light"><%= link_to 'Orders', orders_path %></button>
         <button type="button" class="btn btn-light"><%= link_to 'Log out', destroy_user_session_path %></button>
       <% elsif !current_user && !current_page?(new_user_session_path) %>

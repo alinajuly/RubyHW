@@ -12,7 +12,10 @@ class LineItemsController < ApplicationController
       @line_item = current_cart.add_product(product)
     end
 
-    redirect_to cart_path, notice: "#{product.name} was successfully added to the cart"
+    respond_to do |format|
+      format.html { redirect_to cart_path, notice: "#{product.name} was successfully added to the cart" }
+      format.turbo_stream
+    end
   end
 
   def update

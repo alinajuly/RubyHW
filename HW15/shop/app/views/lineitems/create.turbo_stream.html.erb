@@ -1,0 +1,9 @@
+<%= turbo_stream.update "product_#{@line_item.product_id}" do %> 
+  <%= render 'products/product_info', product: @line_item.product, line_item: @line_item %>
+<% end %>
+
+<%= turbo_stream.update "line_items_count" do %> 
+  <%= turbo_frame_tag "line_items_count" do %>
+    <button type="button" class="btn btn-light"><%= link_to "Cart #{current_cart.total_quantity}", cart_path %></button>
+  <% end %>
+<% end %>
