@@ -18,4 +18,8 @@ class Cart < ApplicationRecord
   def total_price
     line_items.map(&:total_price).sum
   end
+
+  def total_quantity
+    line_items.to_a.sum(&:quantity)
+  end
 end

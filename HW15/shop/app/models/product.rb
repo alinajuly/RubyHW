@@ -23,6 +23,6 @@ class Product < ApplicationRecord
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 0 }
 
   # to add turbo stream with Action Cable 
-  # after_create_commit -> { broadcast_prepend_to "products", partial: "products/products", locals: { product: self }, target: "products" }
+  after_commit -> { broadcast_prepend_to "products", partial: "products/products", target: "products" }
   # after_create_commit -> { broadcast_prepend_to "products"}
 end
