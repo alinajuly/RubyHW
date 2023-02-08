@@ -8,7 +8,7 @@
     <div class='card-body'>
       <h5 class='card-title text-center'><%= link_to product.name, product %></h5>
       <p class='card-price text-black'><%= number_to_currency(product.price) %></p>
-      <%= render partial: 'products/product_info', locals: { product: product, line_item: @line_items.find { |line_item| line_item.product_id == product.id } } %>
+      <%= render partial: 'products/product_quantity', locals: { product: product, line_item: @line_items.find { |line_item| line_item.product_id == product.id } } %>
     </div>
   </div>
 </div>
