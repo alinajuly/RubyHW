@@ -6,7 +6,9 @@ class ProductsController < ApplicationController
     @line_items = current_cart.line_items.to_a
   end
 
-  def show; end
+  def show
+    @line_items = current_cart.line_items.to_a
+  end
 
   private
 
