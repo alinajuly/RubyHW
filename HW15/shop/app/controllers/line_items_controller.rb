@@ -22,8 +22,11 @@ class LineItemsController < ApplicationController
     @line_item.quantity -= 1 if params[:change_quantity] == 'decrease'
     @line_item.quantity += 1 if params[:change_quantity] == 'increase'
     @line_item.update(quantity: @line_item.quantity)
-
-    redirect_to cart_path(current_cart)
+    
+    respond_to do |format|
+      format.html { redirect_to cart_path(current_cart) }
+      format.turbo_stream
+    end
   end
 
   def destroy

@@ -3,6 +3,7 @@ class CategoriesController < ApplicationController
   
   def show
     @products = @category.products
+    @line_items = current_cart.line_items.to_a
   end
 
   private
