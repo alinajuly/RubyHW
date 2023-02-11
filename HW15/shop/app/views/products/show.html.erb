@@ -12,7 +12,7 @@
             <p class="card-text"><%= @product.description %></p>
             <p class="card-text"><%= @product.category.title %></p>
             <p class="card-price"><%= number_to_currency(@product.price) %></p>
-            <%= render partial: 'products/product_quantity', locals: { product: @product, line_item: @line_items.find { |line_item| line_item.product_id == @product.id } } %>
+            <%= render partial: 'products/product_quantity', locals: { product: product, line_item: current_cart.line_items.find { |line_item| line_item.product_id == product.id } } %>
           </div>
         </div>
         <%= link_to 'Back to products', products_path %>

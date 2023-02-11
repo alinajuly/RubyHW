@@ -1,4 +1,4 @@
-<%= turbo_stream.update "product_#{@line_item.product_id}" do %> 
+<%= turbo_stream.update "product_quantity_#{@line_item.product_id}" do %> 
   <%= render 'products/product_quantity', product: @line_item.product, line_item: @line_item %>
 <% end %>
 

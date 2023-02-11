@@ -1,14 +1,16 @@
-<div class='col-auto'>
-  <div class='card text-bg-white' style='width: 20rem'>
-    <% if product.image.attached? %>
-      <%= image_tag product.image.variant(:main), alt: product.name %>
-    <% else %>
-      <%= image_tag("no_image.jpeg", alt: 'No image') %>
-    <% end %>
-    <div class='card-body'>
-      <h5 class='card-title text-center'><%= link_to product.name, product %></h5>
-      <p class='card-price text-black'><%= number_to_currency(product.price) %></p>
-      <%= render partial: 'products/product_quantity', locals: { product: product, line_item: @line_items.find { |line_item| line_item.product_id == product.id } } %>
+  <div class='col-auto'>
+    <%= turbo_frame_tag "product_#{product.id}" do %>
+    <div class='card text-bg-white' style='width: 20rem'>
+      <% if product.image.attached? %>
+        <%= image_tag product.image.variant(:main), alt: product.name %>
+      <% else %>
+        <%= image_tag("no_image.jpeg", alt: 'No image') %>
+      <% end %>
+      <div class='card-body'>
+        <h5 class='card-title text-center'><%= link_to product.name, product %></h5>
+        <p class='card-price text-black'><%= number_to_currency(product.price) %></p>
+        <%= render partial: 'products/product_quantity', locals: { product: product, line_item: current_cart.line_items.find { |line_item| line_item.product_id == product.id } } %>
+      </div>
     </div>
+    <% end %>
   </div>
-</div>

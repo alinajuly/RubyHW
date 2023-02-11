@@ -1,6 +1,6 @@
 <div class="col-auto">
-  <%= turbo_frame_tag product do %>
-    <% if current_cart.product_ids.include?(product.id) && current_user %>
+  <%= turbo_frame_tag "product_quantity_#{product.id}" do %>
+    <% if current_cart.product_ids.include?(product.id) && line_item && current_user %>
       <%= button_to '--', line_item_path(line_item), method: :put, params: { change_quantity: 'decrease' }, class: 'btn btn-secondary' %>
       <%= line_item.quantity %>
       <%= button_to '+', line_item_path(line_item), method: :put, params: { change_quantity: 'increase' }, class: 'btn btn-secondary' %>
