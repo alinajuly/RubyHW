@@ -40,6 +40,7 @@ RSpec.describe 'api/v1/articles', type: :request do
 
           it 'search Article by author name' do
             expect(author_name.name).to eq(Author.find_by(name: author).name)
+            parameter name: :id, in: :path
           end
 
           it 'search Article by tag name' do
@@ -93,7 +94,7 @@ RSpec.describe 'api/v1/articles', type: :request do
 
   path '/api/v1/articles/{id}' do
     # You'll want to customize the parameter types...
-    parameter name: 'id', in: :path, type: :string, description: 'article id'
+    parameter name: :id, in: :path, type: :string, description: 'article id'
     get('show article with comments') do
       tags 'Article'
       
